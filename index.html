@@ -1,654 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automatic Course Planner </title>
-  <meta name="title" content="2023-2024 SPRING SCHEDULE " />
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Automatic Course Planner</title>
+  <meta name="title" content="Automatic Course Planner">
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-
 <body>
-  <table cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
-    <col class="col0">
-    <col class="col1">
-    <col class="col2">
-    <col class="col3">
-    <col class="col4">
-    <col class="col5">
-    <col class="col6">
-    <col class="col7">
-    <col class="col8">
-    <col class="col9">
-    <tbody>
-      <tr class="row0">
-        <td class="column0 style1 s style3" colspan="10"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:9.5pt">{{title}}</span></td>
-      </tr>
-      <tr class="row1">
-        <td class="column0 style4 s style6" colspan="10"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:9pt">{{semesterPart1}}
-            {{semesterPart2}} {{semesterPart3}}</span></td>
-      </tr>
-      <tr class="row2">
-        <td class="column0 style7 null style8" colspan="2"></td>
-        <td class="column2 style9 s style10" colspan="2"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:8pt">1st Year</span></td>
-        <td class="column4 style9 s style10" colspan="2"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:8pt">2nd Year</span></td>
-        <td class="column6 style9 s style10" colspan="2"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:8pt">3rd Year</span></td>
-        <td class="column8 style9 s style10" colspan="2"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:8pt">4th Year</span></td>
-      </tr>
-      <tr class="row3">
-        <td class="column0 style11 s style13" rowspan="9"><span
-            style="transform: rotate(270deg); font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:10.5pt">Monday</span></td>
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">08:30 - 09:20</span>
-        </td>
-        <td class="column2 style15 s style17" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG113</span></td>
-        <td class="column3 style18 s style20" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">DB412</span></td>
-        <td class="column4 style21 null"></td>
-        <td class="column5 style21 null"></td>
-        <td class="column6 style15 s style17" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG306</span></td>
-        <td class="column7 style18 s style20" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">B515</span></td>
-        <td class="column8 style15 s style17" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG418</span></td>
-        <td class="column9 style18 s style20" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">B310</span></td>
-      </tr>
-      <tr class="row4">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">09:30 - 10:20</span>
-        </td>
-        <td class="column4 style21 null"></td>
-        <td class="column5 style21 null"></td>
-      </tr>
-      <tr class="row5">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">10:30 - 11:20</span>
-        </td>
-        <td class="column4 style21 null"></td>
-        <td class="column5 style21 null"></td>
-      </tr>
-      <tr class="row6">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">11:30 - 12:20</span>
-        </td>
-        <td class="column2 style21 null"></td>
-        <td class="column3 style21 null"></td>
-        <td class="column4 style21 null"></td>
-        <td class="column5 style21 null"></td>
-        <td class="column6 style21 null"></td>
-        <td class="column7 style21 null"></td>
-        <td class="column8 style15 s style17" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG404</span></td>
-        <td class="column9 style18 s style20" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">A222</span></td>
-      </tr>
-      <tr class="row7">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">12:30 - 13:20</span>
-        </td>
-        <td class="column2 style22 s style23" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG114 LAB</span></td>
-        <td class="column3 style18 s style20" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">AB417</span></td>
-        <td class="column4 style21 null"></td>
-        <td class="column5 style21 null"></td>
-        <td class="column6 style21 null"></td>
-        <td class="column7 style21 null"></td>
-      </tr>
-      <tr class="row8">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">13:30 - 14:20</span>
-        </td>
-        <td class="column4 style21 null"></td>
-        <td class="column5 style21 null"></td>
-        <td class="column6 style24 s style26" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG342</span></td>
-        <td class="column7 style27 s style29" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">A203</span></td>
-        <td class="column8 style21 null"></td>
-        <td class="column9 style21 null"></td>
-      </tr>
-      <tr class="row9">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">14:30 - 15:20</span>
-        </td>
-        <td class="column2 style22 s style23" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG114 LAB</span></td>
-        <td class="column3 style30 s style31" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">AB310&amp;AB417</span></td>
-        <td class="column4 style24 s style26" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG202</span></td>
-        <td class="column5 style24 s style26" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C111</span></td>
-        <td class="column8 style21 null"></td>
-        <td class="column9 style21 null"></td>
-      </tr>
-      <tr class="row10">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">15:30 - 16:20</span>
-        </td>
-        <td class="column8 style21 null"></td>
-        <td class="column9 style21 null"></td>
-      </tr>
-      <tr class="row11">
-        <td class="column1 style14 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">16:30 - 17:20</span>
-        </td>
-        <td class="column2 style21 null"></td>
-        <td class="column3 style21 null"></td>
-        <td class="column6 style21 null"></td>
-        <td class="column7 style21 null"></td>
-        <td class="column8 style21 null"></td>
-        <td class="column9 style21 null"></td>
-      </tr>
-      <tr class="row12">
-        <td class="column0 style32 s style34" rowspan="13"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:10.5pt">Tuesday</span></td>
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">08:30 - 09:20</span>
-        </td>
-        <td class="column2 style36 null"></td>
-        <td class="column3 style36 null"></td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style37 s style39" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG442</span></td>
-        <td class="column9 style40 s style42" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">A303</span></td>
-      </tr>
-      <tr class="row13">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">09:30 - 10:20</span>
-        </td>
-        <td class="column2 style36 null"></td>
-        <td class="column3 style36 null"></td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-      </tr>
-      <tr class="row14">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">10:30 - 11:20</span>
-        </td>
-        <td class="column2 style36 null"></td>
-        <td class="column3 style36 null"></td>
-        <td class="column4 style43 s style44" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ENGR202</span></td>
-        <td class="column5 style43 s style44" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">B413</span></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-      </tr>
-      <tr class="row15">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">11:30 - 12:20</span>
-        </td>
-        <td class="column2 style37 s style39" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">PHYS102</span></td>
-        <td class="column3 style37 s style39" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C111</span></td>
-        <td class="column6 style37 s style39" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG302</span></td>
-        <td class="column7 style45 s style47" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">DB412</span></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row16">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">12:30 - 13:20</span>
-        </td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row17">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">13:30 - 14:20</span>
-        </td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row18">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">14:30 - 15:20</span>
-        </td>
-        <td class="column2 style36 null"></td>
-        <td class="column3 style36 null"></td>
-        <td class="column4 style37 s style39" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG206</span></td>
-        <td class="column5 style48 s style50" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">DB412</span></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row19">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">15:30 - 16:20</span>
-        </td>
-        <td class="column2 style43 s style44" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">TDL 102</span></td>
-        <td class="column3 style51 s style52" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ONLINE</span></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row20">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">16:30 - 17:20</span>
-        </td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row21">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">17:30 - 18:20</span>
-        </td>
-        <td class="column2 style36 null"></td>
-        <td class="column3 style36 null"></td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row22">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">18:30 - 19:20</span>
-        </td>
-        <td class="column2 style36 null"></td>
-        <td class="column3 style36 null"></td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row23">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">19:30 - 20:20</span>
-        </td>
-        <td class="column2 style43 s style44" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">TİT 102</span></td>
-        <td class="column3 style51 s style52" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ONLINE</span></td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row24">
-        <td class="column1 style35 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">20:30 - 21:20</span>
-        </td>
-        <td class="column4 style36 null"></td>
-        <td class="column5 style36 null"></td>
-        <td class="column6 style36 null"></td>
-        <td class="column7 style36 null"></td>
-        <td class="column8 style36 null"></td>
-        <td class="column9 style36 null"></td>
-      </tr>
-      <tr class="row25">
-        <td class="column0 style53 s style55" rowspan="9"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:10.5pt">Wednesday</span></td>
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">08:30 - 09:20</span>
-        </td>
-        <td class="column2 style57 s style59" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG114</span></td>
-        <td class="column3 style57 s style59" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">B515</span></td>
-        <td class="column4 style60 null"></td>
-        <td class="column5 style60 null"></td>
-        <td class="column6 style57 s style59" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG415</span></td>
-        <td class="column7 style61 s style63" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C502</span></td>
-        <td class="column8 style57 s style59" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG462</span></td>
-        <td class="column9 style61 s style63" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">A422</span></td>
-      </tr>
-      <tr class="row26">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">09:30 - 10:20</span>
-        </td>
-        <td class="column4 style60 null"></td>
-        <td class="column5 style60 null"></td>
-      </tr>
-      <tr class="row27">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">10:30 - 11:20</span>
-        </td>
-        <td class="column4 style64 s style65" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ENGR258</span></td>
-        <td class="column5 style64 s style65" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">B413</span></td>
-      </tr>
-      <tr class="row28">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">11:30 - 12:20</span>
-        </td>
-        <td class="column2 style66 s style67" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG113 LAB</span></td>
-        <td class="column3 style68 s style69" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">AB310&amp;AB417</span></td>
-        <td class="column6 style60 null"></td>
-        <td class="column7 style60 null"></td>
-        <td class="column8 style60 null"></td>
-        <td class="column9 style60 null"></td>
-      </tr>
-      <tr class="row29">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">12:30 - 13:20</span>
-        </td>
-        <td class="column4 style57 s style59" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG204</span></td>
-        <td class="column5 style57 s style59" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">B413</span></td>
-        <td class="column6 style60 null"></td>
-        <td class="column7 style60 null"></td>
-        <td class="column8 style60 null"></td>
-        <td class="column9 style60 null"></td>
-      </tr>
-      <tr class="row30">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">13:30 - 14:20</span>
-        </td>
-        <td class="column2 style66 s style67" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG113 LAB</span></td>
-        <td class="column3 style70 s style71" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">AB417</span></td>
-        <td class="column6 style57 s style59" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG325</span></td>
-        <td class="column7 style61 s style63" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C502</span></td>
-        <td class="column8 style60 null"></td>
-        <td class="column9 style60 null"></td>
-      </tr>
-      <tr class="row31">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">14:30 - 15:20</span>
-        </td>
-        <td class="column8 style60 null"></td>
-        <td class="column9 style60 null"></td>
-      </tr>
-      <tr class="row32">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">15:30 - 16:20</span>
-        </td>
-        <td class="column2 style60 null"></td>
-        <td class="column3 style60 null"></td>
-        <td class="column4 style60 null"></td>
-        <td class="column5 style60 null"></td>
-        <td class="column8 style60 null"></td>
-        <td class="column9 style60 null"></td>
-      </tr>
-      <tr class="row33">
-        <td class="column1 style56 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">16:30 - 17:20</span>
-        </td>
-        <td class="column2 style60 null"></td>
-        <td class="column3 style60 null"></td>
-        <td class="column4 style60 null"></td>
-        <td class="column5 style60 null"></td>
-        <td class="column6 style60 null"></td>
-        <td class="column7 style60 null"></td>
-        <td class="column8 style60 null"></td>
-        <td class="column9 style60 null"></td>
-      </tr>
-      <tr class="row34">
-        <td class="column0 style72 s style74" rowspan="9"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:10.5pt">Thursday</span></td>
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">08:30 - 09:20</span>
-        </td>
-        <td class="column2 style76 s style78" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">MATH104</span></td>
-        <td class="column3 style79 s style81" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">DB412</span></td>
-        <td class="column4 style82 null"></td>
-        <td class="column5 style82 null"></td>
-        <td class="column6 style82 null"></td>
-        <td class="column7 style82 null"></td>
-        <td class="column8 style76 s style78" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG441</span></td>
-        <td class="column9 style79 s style81" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C502</span></td>
-      </tr>
-      <tr class="row35">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">09:30 - 10:20</span>
-        </td>
-        <td class="column4 style83 s style84" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG202 LAB</span></td>
-        <td class="column5 style85 s style86" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">AB417</span></td>
-        <td class="column6 style82 null"></td>
-        <td class="column7 style82 null"></td>
-      </tr>
-      <tr class="row36">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">10:30 - 11:20</span>
-        </td>
-        <td class="column6 style82 null"></td>
-        <td class="column7 style82 null"></td>
-      </tr>
-      <tr class="row37">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">11:30 - 12:20</span>
-        </td>
-        <td class="column2 style87 s style88" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">MATH102</span></td>
-        <td class="column3 style87 s style88" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C111</span></td>
-        <td class="column4 style83 s style84" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG202 LAB</span></td>
-        <td class="column5 style89 s style90" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">AB310&amp;AB417</span></td>
-        <td class="column6 style82 null"></td>
-        <td class="column7 style82 null"></td>
-        <td class="column8 style76 s style78" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG428</span></td>
-        <td class="column9 style79 s style81" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C502</span></td>
-      </tr>
-      <tr class="row38">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">12:30 - 13:20</span>
-        </td>
-        <td class="column6 style82 null"></td>
-        <td class="column7 style82 null"></td>
-      </tr>
-      <tr class="row39">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">13:30 - 14:20</span>
-        </td>
-        <td class="column2 style76 s style78" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">PHYS104</span></td>
-        <td class="column3 style76 s style78" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">LAB</span></td>
-        <td class="column4 style83 s style84" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG202 LAB</span></td>
-        <td class="column5 style89 s style90" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">AB310&amp;AB417</span></td>
-        <td class="column6 style76 s style78" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG304</span></td>
-        <td class="column7 style79 s style81" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C503</span></td>
-      </tr>
-      <tr class="row40">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">14:30 - 15:20</span>
-        </td>
-        <td class="column8 style82 null"></td>
-        <td class="column9 style82 null"></td>
-      </tr>
-      <tr class="row41">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">15:30 - 16:20</span>
-        </td>
-        <td class="column4 style82 null"></td>
-        <td class="column5 style82 null"></td>
-        <td class="column8 style87 s style88" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ENGR450</span></td>
-        <td class="column9 style91 s style92" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C502</span></td>
-      </tr>
-      <tr class="row42">
-        <td class="column1 style75 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">16:30 - 17:20</span>
-        </td>
-        <td class="column2 style82 null"></td>
-        <td class="column3 style82 null"></td>
-        <td class="column4 style82 null"></td>
-        <td class="column5 style82 null"></td>
-        <td class="column6 style82 null"></td>
-        <td class="column7 style82 null"></td>
-      </tr>
-      <tr class="row43">
-        <td class="column0 style93 s style95" rowspan="9"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:10.5pt">Friday</span></td>
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">08:30 - 09:20</span>
-        </td>
-        <td class="column2 style97 s style99" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ENG102</span></td>
-        <td class="column3 style100 s style102" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ONLINE</span></td>
-        <td class="column4 style103 null"></td>
-        <td class="column5 style103 null"></td>
-        <td class="column6 style103 null"></td>
-        <td class="column7 style103 null"></td>
-        <td class="column8 style97 s style99" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ENGR404</span></td>
-        <td class="column9 style100 s style102" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">B515</span></td>
-      </tr>
-      <tr class="row44">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">09:30 - 10:20</span>
-        </td>
-        <td class="column4 style103 null"></td>
-        <td class="column5 style103 null"></td>
-        <td class="column6 style103 null"></td>
-        <td class="column7 style103 null"></td>
-      </tr>
-      <tr class="row45">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">10:30 - 11:20</span>
-        </td>
-        <td class="column4 style104 s style105" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">ENGR202</span></td>
-        <td class="column5 style104 s style105" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C111</span></td>
-        <td class="column6 style103 null"></td>
-        <td class="column7 style103 null"></td>
-      </tr>
-      <tr class="row46">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">11:30 - 12:20</span>
-        </td>
-        <td class="column2 style103 null"></td>
-        <td class="column3 style103 null"></td>
-        <td class="column6 style103 null"></td>
-        <td class="column7 style103 null"></td>
-        <td class="column8 style103 null"></td>
-        <td class="column9 style103 null"></td>
-      </tr>
-      <tr class="row47">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">12:30 - 13:20</span>
-        </td>
-        <td class="column2 style103 null"></td>
-        <td class="column3 style103 null"></td>
-        <td class="column4 style103 null"></td>
-        <td class="column5 style103 null"></td>
-        <td class="column6 style103 null"></td>
-        <td class="column7 style103 null"></td>
-        <td class="column8 style103 null"></td>
-        <td class="column9 style103 null"></td>
-      </tr>
-      <tr class="row48">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">13:30 - 14:20</span>
-        </td>
-        <td class="column2 style104 s style105" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">MATH102</span></td>
-        <td class="column3 style104 s style105" rowspan="2"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C111</span></td>
-        <td class="column4 style103 null"></td>
-        <td class="column5 style103 null"></td>
-        <td class="column6 style97 s style99" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">CENG311</span></td>
-        <td class="column7 style100 s style102" rowspan="3"><span
-            style="color:#000000; font-family:'Trebuchet MS'; font-size:8pt">C403</span></td>
-        <td class="column8 style103 null"></td>
-        <td class="column9 style103 null"></td>
-      </tr>
-      <tr class="row49">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">14:30 - 15:20</span>
-        </td>
-        <td class="column4 style103 null"></td>
-        <td class="column5 style103 null"></td>
-        <td class="column8 style103 null"></td>
-        <td class="column9 style103 null"></td>
-      </tr>
-      <tr class="row50">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">15:30 - 16:20</span>
-        </td>
-        <td class="column2 style103 null"></td>
-        <td class="column3 style103 null"></td>
-        <td class="column4 style103 null"></td>
-        <td class="column5 style103 null"></td>
-        <td class="column8 style103 null"></td>
-        <td class="column9 style103 null"></td>
-      </tr>
-      <tr class="row51">
-        <td class="column1 style96 s"><span
-            style="font-weight:bold; color:#333333; font-family:'Trebuchet MS'; font-size:6.5pt">16:30 - 17:20</span>
-        </td>
-        <td class="column2 style103 null"></td>
-        <td class="column3 style103 null"></td>
-        <td class="column4 style103 null"></td>
-        <td class="column5 style103 null"></td>
-        <td class="column6 style103 null"></td>
-        <td class="column7 style103 null"></td>
-        <td class="column8 style103 null"></td>
-        <td class="column9 style103 null"></td>
-      </tr>
-    </tbody>
-  </table>
-  <script src="app.js"></script>
-</body>
-
+    <table cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+        <col class="col0">
+        <col class="col1">
+        <col class="col2">
+        <col class="col3">
+        <col class="col4">
+        <col class="col5">
+        <col class="col6">
+        <col class="col7">
+        <col class="col8">
+        <col class="col9">
+        <tbody>
+          <tr class="row0">
+            <td class="column0 style6 bheader" colspan="10">ANKARA YILDIRIM BEYAZIT UNIVERSITY FACULTY OF ENGINEERING AND NATURAL SCIENCES</td>
+          </tr>
+          <tr class="row1">
+            <td class="column0 style6 bheader" colspan="10">2023 - 2024 SPRING SEMESTER WEEKLY SCHEDULE (COMPUTER ENGINEERING DEPARTMENT)</td>
+          </tr>
+          <tr class="row2">
+            <td class="column0 style6" colspan="2"></td>
+            <td class="column2 style6 bs header" colspan="2">1st Year</td>
+            <td class="column4 style6 bs header" colspan="2">2nd Year</td>
+            <td class="column6 style6 bs header" colspan="2">3rd Year</td>
+            <td class="column8 style6 bs header" colspan="2">4th Year</td>
+          </tr>
+          <tr class="row3">
+            <td class="column0 style1 s b" rowspan="8">Monday</td>
+            <td class="column1 style1 s header">08:30 - 09:20</td>
+            <td class="column2 style1 s" rowspan="3">CENG113</td>
+            <td class="column3 style1 s" rowspan="3">DB412</td>
+            <td class="column4 style1"></td>
+            <td class="column5 style1"></td>
+            <td class="column6 style1 s" rowspan="3">CENG306</td>
+            <td class="column7 style1 s" rowspan="3">B515</td>
+            <td class="column8 style1 s" rowspan="3">CENG418</td>
+            <td class="column9 style1 s" rowspan="3">B310</td>
+          </tr>
+          <tr class="row4">
+            <td class="column1 style1 s header">09:30 - 10:20</td>
+            <td class="column4 style1"></td>
+            <td class="column5 style1"></td>
+          </tr>
+          <tr class="row5">
+            <td class="column1 style1 s header">10:30 - 11:20</td>
+            <td class="column4 style1"></td>
+            <td class="column5 style1"></td>
+          </tr>
+          <tr class="row6">
+            <td class="column1 style1 s header">11:30 - 12:20</td>
+            <td class="column2 style1 "></td>
+            <td class="column3 style1"></td>
+            <td class="column4 style1"></td>
+            <td class="column5 style1"></td>
+            <td class="column6 style1"></td>
+            <td class="column7 style1"></td>
+            <td class="column8 style1 s" rowspan="2">CENG404</td>
+            <td class="column9 style1 s" rowspan="2">A222</td>
+          </tr>
+          <tr class="row7">
+            <td class="column1 style1 s header">12:30 - 13:20</td>
+            <td class="column2 style1 s" rowspan="2">CENG114 LAB</td>
+            <td class="column3 style1 s" rowspan="2">AB417</td>
+            <td class="column4 style1"></td>
+            <td class="column5 style1"></td>
+            <td class="column6 style1"></td>
+            <td class="column7 style1"></td>
+          </tr>
+          <tr class="row8">
+            <td class="column1 style1 s header">13:30 - 14:20</td>
+            <td class="column4 style1"></td>
+            <td class="column5 style1"></td>
+            <td class="column6 style1 s" rowspan="3">CENG342</td>
+            <td class="column7 style1 s" rowspan="3">A203</td>
+            <td class="column8 style1"></td>
+            <td class="column9 style1"></td>
+          </tr>
+          <tr class="row9">
+            <td class="column1 style1 s header">14:30 - 15:20</td>
+            <td class="column2 style1" rowspan="2"></td>
+            <td class="column3 style1" rowspan="2"></td>
+            <td class="column4 style1 s" rowspan="2">CENG202</td>
+            <td class="column5 style1 s" rowspan="2">C111</td>
+            <td class="column8 style1"></td>
+            <td class="column9 style1"></td>
+          </tr>
+          <tr class="row10">
+            <td class="column1 style1 s header">15:30 - 16:20</td>
+            <td class="column8 style1"></td>
+            <td class="column9 style1"></td>
+          </tr>
+          <tr class="row11">
+            <td class="column0 style2 s b" rowspan="8">Tuesday</td>
+            <td class="column1 style2 s header">08:30 - 09:20</td>
+            <td class="column2 style2"></td>
+            <td class="column3 style2"></td>
+            <td class="column4 style2"></td>
+            <td class="column5 style2"></td>
+            <td class="column6 style2"></td>
+            <td class="column7 style2"></td>
+            <td class="column8 style2 s" rowspan="3">CENG442</td>
+            <td class="column9 style2 s" rowspan="3">A303</td>
+          </tr>
+          <tr class="row12">
+            <td class="column1 style2 s header">09:30 - 10:20</td>
+            <td class="column2 style2"></td>
+            <td class="column3 style2"></td>
+            <td class="column4 style2"></td>
+            <td class="column5 style2"></td>
+            <td class="column6 style2"></td>
+            <td class="column7 style2"></td>
+          </tr>
+          <tr class="row13">
+            <td class="column1 style2 s header">10:30 - 11:20</td>
+            <td class="column2 style2"></td>
+            <td class="column3 style2"></td>
+            <td class="column4 style2 s" rowspan="2">ENGR202</td>
+            <td class="column5 style2 s" rowspan="2">B413</td>
+            <td class="column6 style2"></td>
+            <td class="column7 style2"></td>
+          </tr>
+          <tr class="row14">
+            <td class="column1 style2 s header">11:30 - 12:20</td>
+            <td class="column2 style2 s" rowspan="3">PHYS102</td>
+            <td class="column3 style2 s" rowspan="3">C111</td>
+            <td class="column6 style2 s" rowspan="3">CENG302</td>
+            <td class="column7 style2 s" rowspan="3">DB412</td>
+            <td class="column8 style2"></td>
+            <td class="column9 style2"></td>
+          </tr>
+          <tr class="row15">
+            <td class="column1 style2 s header">12:30 - 13:20</td>
+            <td class="column4 style2"></td>
+            <td class="column5 style2"></td>
+            <td class="column8 style2"></td>
+            <td class="column9 style2"></td>
+          </tr>
+          <tr class="row16">
+            <td class="column1 style2 s header">13:30 - 14:20</td>
+            <td class="column4 style2"></td>
+            <td class="column5 style2"></td>
+            <td class="column8 style2"></td>
+            <td class="column9 style2"></td>
+          </tr>
+          <tr class="row17">
+            <td class="column1 style2 s header">14:30 - 15:20</td>
+            <td class="column2 style2"></td>
+            <td class="column3 style2"></td>
+            <td class="column4 style2 s" rowspan="2">CENG206</td>
+            <td class="column5 style2 s" rowspan="2">DB412</td>
+            <td class="column6 style2"></td>
+            <td class="column7 style2"></td>
+            <td class="column8 style2"></td>
+            <td class="column9 style2"></td>
+          </tr>
+          <tr class="row18">
+            <td class="column1 style2 s header">15:30 - 16:20</td>
+            <td class="column2 style2 s">TDL 102</td>
+            <td class="column3 style2 s">ONLINE</td>
+            <td class="column6 style2"></td>
+            <td class="column7 style2"></td>
+            <td class="column8 style2"></td>
+            <td class="column9 style2"></td>
+          </tr>
+          <tr class="row19">
+            <td class="column0 style3 s b" rowspan="8">Wednesday</td>
+            <td class="column1 style3 s header">08:30 - 09:20</td>
+            <td class="column2 style3 s" rowspan="3">CENG114</td>
+            <td class="column3 style3 s" rowspan="3">B515</td>
+            <td class="column4 style3"></td>
+            <td class="column5 style3"></td>
+            <td class="column6 style3 s" rowspan="3">CENG415</td>
+            <td class="column7 style3 s" rowspan="3">C502</td>
+            <td class="column8 style3 s" rowspan="3">CENG462</td>
+            <td class="column9 style3 s" rowspan="3">A422</td>
+          </tr>
+          <tr class="row20">
+            <td class="column1 style3 s header">09:30 - 10:20</td>
+            <td class="column4 style3"></td>
+            <td class="column5 style3"></td>
+          </tr>
+          <tr class="row21">
+            <td class="column1 style3 s header">10:30 - 11:20</td>
+            <td class="column4 style3 s" rowspan="2">ENGR258</td>
+            <td class="column5 style3 s" rowspan="2">B413</td>
+          </tr>
+          <tr class="row22">
+            <td class="column1 style3 s header">11:30 - 12:20</td>
+            <td class="column2 style3" rowspan="2"></td>
+            <td class="column3 style3" rowspan="2"></td>
+            <td class="column6 style3"></td>
+            <td class="column7 style3"></td>
+            <td class="column8 style3"></td>
+            <td class="column9 style3"></td>
+          </tr>
+          <tr class="row23">
+            <td class="column1 style3 s header">12:30 - 13:20</td>
+            <td class="column4 style3 s" rowspan="3">CENG204</td>
+            <td class="column5 style3 s" rowspan="3">B413</td>
+            <td class="column6 style3"></td>
+            <td class="column7 style3"></td>
+            <td class="column8 style3"></td>
+            <td class="column9 style3"></td>
+          </tr>
+          <tr class="row24">
+            <td class="column1 style3 s header">13:30 - 14:20</td>
+            <td class="column2 style3 s" rowspan="2">CENG113 LAB</td>
+            <td class="column3 style3 s" rowspan="2">AB417</td>
+            <td class="column6 style3 s" rowspan="3">CENG325</td>
+            <td class="column7 style3 s" rowspan="3">C502</td>
+            <td class="column8 style3"></td>
+            <td class="column9 style3"></td>
+          </tr>
+          <tr class="row25">
+            <td class="column1 style3 s header">14:30 - 15:20</td>
+            <td class="column8 style3"></td>
+            <td class="column9 style3"></td>
+          </tr>
+          <tr class="row26">
+            <td class="column1 style3 s header">15:30 - 16:20</td>
+            <td class="column2 style3"></td>
+            <td class="column3 style3"></td>
+            <td class="column4 style3"></td>
+            <td class="column5 style3"></td>
+            <td class="column8 style3"></td>
+            <td class="column9 style3"></td>
+          </tr>
+          <tr class="row27">
+            <td class="column0 style4 b s header" rowspan="8">Thursday</td>
+            <td class="column1 style4 s header">08:30 - 09:20</td>
+            <td class="column2 style4 s" rowspan="3">MATH104</td>
+            <td class="column3 style4 s" rowspan="3">DB412</td>
+            <td class="column4 style4"></td>
+            <td class="column5 style4"></td>
+            <td class="column6 style4"></td>
+            <td class="column7 style4"></td>
+            <td class="column8 style4 s" rowspan="3">CENG441</td>
+            <td class="column9 style4 s" rowspan="3">C502</td>
+          </tr>
+          <tr class="row28">
+            <td class="column1 style4 s header">09:30 - 10:20</td>
+            <td class="column4 style4 s" rowspan="2">CENG202 LAB</td>
+            <td class="column5 style4 s" rowspan="2">AB417</td>
+            <td class="column6 style4"></td>
+            <td class="column7 style4"></td>
+          </tr>
+          <tr class="row29">
+            <td class="column1 style4 s header">10:30 - 11:20</td>
+            <td class="column6 style4"></td>
+            <td class="column7 style4"></td>
+          </tr>
+          <tr class="row30">
+            <td class="column1 style4 s header">11:30 - 12:20</td>
+            <td class="column2 style4 s" rowspan="2">MATH102</td>
+            <td class="column3 style4 s" rowspan="2">C111</td>
+            <td class="column4 style4" rowspan="2"></td>
+            <td class="column5 style4" rowspan="2"></td>
+            <td class="column6 style4"></td>
+            <td class="column7 style4"></td>
+            <td class="column8 style4 s" rowspan="3">CENG428</td>
+            <td class="column9 style4 s" rowspan="3">C502</td>
+          </tr>
+          <tr class="row31">
+            <td class="column1 style4 s header">12:30 - 13:20</td>
+            <td class="column6 style4"></td>
+            <td class="column7 style4"></td>
+          </tr>
+          <tr class="row32">
+            <td class="column1 style4 s header">13:30 - 14:20</td>
+            <td class="column2 style4 s" rowspan="3">PHYS104</td>
+            <td class="column3 style4 s" rowspan="3">LAB</td>
+            <td class="column4 style4" rowspan="2"></td>
+            <td class="column5 style4" rowspan="2"></td>
+            <td class="column6 style4 s" rowspan="3">CENG304</td>
+            <td class="column7 style4 s" rowspan="3">C503</td>
+          </tr>
+          <tr class="row33">
+            <td class="column1 style4 s header">14:30 - 15:20</td>
+            <td class="column8 style4"></td>
+            <td class="column9 style4"></td>
+          </tr>
+          <tr class="row34">
+            <td class="column1 style4 s header">15:30 - 16:20</td>
+            <td class="column4 style4"></td>
+            <td class="column5 style4"></td>
+            <td class="column8 style4 s">ENGR450</td>
+            <td class="column9 style4 s">C502</td>
+          </tr>
+          <tr class="row35">
+            <td class="column0 style5 s b" rowspan="8">Friday</td>
+            <td class="column1 style5 s header">08:30 - 09:20</td>
+            <td class="column2 style5 s" rowspan="3">ENG102</td>
+            <td class="column3 style5 s" rowspan="3">ONLINE</td>
+            <td class="column4 style5"></td>
+            <td class="column5 style5"></td>
+            <td class="column6 style5"></td>
+            <td class="column7 style5"></td>
+            <td class="column8 style5 s" rowspan="3">ENGR404</td>
+            <td class="column9 style5 s" rowspan="3">B515</td>
+          </tr>
+          <tr class="row36">
+            <td class="column1 style5 s header">09:30 - 10:20</td>
+            <td class="column4 style5"></td>
+            <td class="column5 style5"></td>
+            <td class="column6 style5"></td>
+            <td class="column7 style5"></td>
+          </tr>
+          <tr class="row37">
+            <td class="column1 style5 s header">10:30 - 11:20</td>
+            <td class="column4 style5 s" rowspan="2">ENGR202</td>
+            <td class="column5 style5 s" rowspan="2">C111</td>
+            <td class="column6 style5"></td>
+            <td class="column7 style5"></td>
+          </tr>
+          <tr class="row38">
+            <td class="column1 style5 s header">11:30 - 12:20</td>
+            <td class="column2 style5"></td>
+            <td class="column3 style5"></td>
+            <td class="column6 style5"></td>
+            <td class="column7 style5"></td>
+            <td class="column8 style5"></td>
+            <td class="column9 style5"></td>
+          </tr>
+          <tr class="row39">
+            <td class="column1 style5 s header">12:30 - 13:20</td>
+            <td class="column2 style5"></td>
+            <td class="column3 style5"></td>
+            <td class="column4 style5"></td>
+            <td class="column5 style5"></td>
+            <td class="column6 style5"></td>
+            <td class="column7 style5"></td>
+            <td class="column8 style5"></td>
+            <td class="column9 style5"></td>
+          </tr>
+          <tr class="row40">
+            <td class="column1 style5 s header">13:30 - 14:20</td>
+            <td class="column2 style5 s" rowspan="2">MATH102</td>
+            <td class="column3 style5 s" rowspan="2">C111</td>
+            <td class="column4 style5"></td>
+            <td class="column5 style5"></td>
+            <td class="column6 style5 s" rowspan="3">CENG311</td>
+            <td class="column7 style5 s" rowspan="3">C403</td>
+            <td class="column8 style5"></td>
+            <td class="column9 style5"></td>
+          </tr>
+          <tr class="row41">
+            <td class="column1 style5 s header">14:30 - 15:20</td>
+            <td class="column4 style5"></td>
+            <td class="column5 style5"></td>
+            <td class="column8 style5"></td>
+            <td class="column9 style5"></td>
+          </tr>
+          <tr class="row42">
+            <td class="column1 style5 s header">15:30 - 16:20</td>
+            <td class="column2 style5"></td>
+            <td class="column3 style5"></td>
+            <td class="column4 style5"></td>
+            <td class="column5 style5"></td>
+            <td class="column8 style5"></td>
+            <td class="column9 style5"></td>
+          </tr>
+        </tbody>
+    </table>
+  </body>
 </html>
