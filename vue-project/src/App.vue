@@ -12,20 +12,20 @@
             <col class="col9">
             <tbody>
             <tr class="row0">
-                <td class="column0 style6 b header" colspan="10"> {{facultyTitle}} </td>
+                <td class="column0 style6 header" colspan="10"> {{facultyTitle}} </td>
             </tr>
             <tr class="row1">
-                <td class="column0 style6 b header" colspan="10">{{ semerterTitlePart1 }} {{ semerterTitlePart2 }}</td>
+                <td class="column0 style6 header" colspan="10"> {{ semerterTitle }} </td>
             </tr>
             <tr class="row2">
                 <td class="column0 style6" colspan="2"></td>
-                <td class="column2 style6 b header" colspan="2">1st Year</td>
-                <td class="column4 style6 b header" colspan="2">2nd Year</td>
-                <td class="column6 style6 b header" colspan="2">3rd Year</td>
-                <td class="column8 style6 b header" colspan="2">4th Year</td>
+                <td class="column2 style6 header" colspan="2">{{years[0]}}</td>  
+                <td class="column4 style6 header" colspan="2">{{years[1]}}</td>
+                <td class="column6 style6 header" colspan="2">{{years[2]}}</td>
+                <td class="column8 style6 header" colspan="2">{{years[3]}}</td>
             </tr>
             <tr class="row3">
-                <td class="column0 style1 b" rowspan="8">Monday</td>
+                <td class="column0 style1 header" rowspan="8">{{days[0]}}</td>
                 <td class="column1 style1 header">{{timeSlots.lesson1}}</td>
                 <td class="column2 style1" rowspan="3">CENG113</td>
                 <td class="column3 style1" rowspan="3">DB412</td>
@@ -90,7 +90,7 @@
                 <td class="column9 style1"></td>
             </tr>
             <tr class="row11">
-                <td class="column0 style2 b" rowspan="8">Tuesday</td>
+                <td class="column0 style2 header" rowspan="8">{{days[1]}}</td>
                 <td class="column1 style2 header">{{timeSlots.lesson1}}</td>
                 <td class="column2 style2"></td>
                 <td class="column3 style2"></td>
@@ -163,7 +163,7 @@
                 <td class="column9 style2"></td>
             </tr>
             <tr class="row19">
-                <td class="column0 style3 b" rowspan="8">Wednesday</td>
+                <td class="column0 style3 header" rowspan="8">{{days[2]}}</td>
                 <td class="column1 style3 header">{{timeSlots.lesson1}}</td>
                 <td class="column2 style3" rowspan="3">CENG114</td>
                 <td class="column3 style3" rowspan="3">B515</td>
@@ -226,7 +226,7 @@
                 <td class="column9 style3"></td>
             </tr>
             <tr class="row27">
-                <td class="column0 style4 b header" rowspan="8">Thursday</td>
+                <td class="column0 style4 header" rowspan="8">{{days[3]}}</td>
                 <td class="column1 style4 header">{{timeSlots.lesson1}}</td>
                 <td class="column2 style4" rowspan="3">MATH104</td>
                 <td class="column3 style4" rowspan="3">DB412</td>
@@ -287,7 +287,7 @@
                 <td class="column9 style4">C502</td>
             </tr>
             <tr class="row35">
-                <td class="column0 style5 b" rowspan="8">Friday</td>
+                <td class="column0 style5 header" rowspan="8">{{days[4]}}</td>
                 <td class="column1 style5 header">{{timeSlots.lesson1}}</td>
                 <td class="column2 style5" rowspan="3">ENG102</td>
                 <td class="column3 style5" rowspan="3">ONLINE</td>
@@ -362,13 +362,16 @@
             </tbody>
         </table>
 </template>
+
 <script>
 export default{
     data(){
         return{
             facultyTitle:"ANKARA YILDIRIM BEYAZIT UNIVERSITY FACULTY OF ENGINEERING AND NATURAL SCIENCES",
-            semesterTitlePart1: "2023 - 2024 SPRING",
-            semerterTitlePart2:" SEMESTER WEEKLY SCHEDULE (COMPUTER ENGINEERING DEPARTMENT)",
+            semesterTitleFirstPart: "2023 - 2024 SPRING",
+            semerterTitleSecondPart:"SEMESTER WEEKLY SCHEDULE (COMPUTER ENGINEERING DEPARTMENT)",
+            years: ["1st Year","2nd Year","3rd Year","4th Year"],
+            days: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
             timeSlots:{
                 lesson1 : "08:30 - 09:20",
                 lesson2 : "09:30 - 10:20",
@@ -385,7 +388,9 @@ export default{
 
     },
     computed:{
-
+        semerterTitle: function(){
+            return this.semesterTitleFirstPart+ " " + this.semerterTitleSecondPart; 
+        }
     }
 }
 </script>

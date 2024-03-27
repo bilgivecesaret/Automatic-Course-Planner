@@ -1,9 +1,7 @@
 html { font-family:'Times New Roman', Times, serif; font-size:11pt; background-color:white }
 table { border-collapse:collapse; page-break-after:always }
-.gridlines td { border:1px solid black }
-.gridlines th { border:1px solid black }
-.b {font-weight:bold; }
-.header { font-weight:bold; color:#333333; font-family:'Times New Roman'; font-size:11pt }
+.gridlines td, .gridlines th { border:1px solid black }
+.header { font-weight:bold; color:#333333;}
 table.sheet0 td , table.sheet0 th{ vertical-align:middle; text-align:center; border:1px solid #000000 !important; 
     color:#000000; font-family:'Times New Roman'; font-size:11pt; }
 td.style1, th.style1 {  background-color:#EAF1DD }
