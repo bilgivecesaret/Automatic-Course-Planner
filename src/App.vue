@@ -1,8 +1,5 @@
 <template>
-    <keep-alive>
-        <component v-bind:is="component"></component>
-    </keep-alive>
-    <button v-on:click="component='app-result'">Print Schedule</button>
+    <router-view></router-view>
 </template>
 
 <script>
@@ -16,7 +13,7 @@ export default {
     },
     data() {
         return {
-            component: 'app-home'
+            
         }
     }
 }

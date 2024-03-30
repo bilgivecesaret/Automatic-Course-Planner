@@ -363,6 +363,7 @@
     </table>
 </template>
 
+
 <script>
 export default {
     data() {
