@@ -5,7 +5,7 @@
         <button id="process" v-on:click="processCSV">Process the file.</button>
         <div v-if="csvContent">
             <h3>CSV Content:</h3>
-            <pre>{{ csvContent }}</pre>
+            <pre v-for="con in csvContent">{{ con }}</pre>
         </div>             
     </div>
     <div>
@@ -19,7 +19,7 @@
 export default{
     data(){
         return {
-            csvContent: null,
+            csvContent: [],
             selectedFile: null
         };
     },
@@ -44,7 +44,8 @@ export default{
             const reader = new FileReader();
 
             reader.onload = () => {
-                this.csvContent = reader.result;
+                this.csvContent.push(reader.result);
+                this.selectedFile = null;
             };
 
             reader.onerror = () => {
