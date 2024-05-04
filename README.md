@@ -17,7 +17,7 @@ The following steps walk through getting the application running.
 
 ### 2. Install and set up the environment
 
-We recommend using VS Code to install and run the application. This application was made using Vue.js. To install Vue.js, visit https://vuejs.org/guide/quick-start.html. Install json-server to access files on the local server. To install json-server, follow the steps at https://www.npmjs.com/package/json-server. The data on the local server is in the directory named "public". Perform the json-server installation command in this directory. Install axios for data transfers. You can access the installation command at https://axios-http.com/docs/intro. Install Papa Parse to convert CSV files to json data type that the application will use. It can be installed with this command: npm install papaparse
+We recommend using VS Code to install and run the application. This application was made using Vue.js. To install Vue.js, visit https://vuejs.org/guide/quick-start.html. Install json-server to access files on the local server. To install json-server, follow the steps at https://www.npmjs.com/package/json-server. The data on the local server is in the directory named "public". Perform the json-server installation command in this directory. Install axios for data transfers. You can access the installation command at https://axios-http.com/docs/intro. 
 
 ### 3. Start the app
 
