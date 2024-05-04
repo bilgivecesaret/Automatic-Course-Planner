@@ -146,7 +146,7 @@ export default {
           result.push(obj);
         }
         course = JSON.stringify(result);
-        console.warn(course);
+        console.log(course);
       };
     },
     handleFileUpload2(event) {
@@ -178,7 +178,7 @@ export default {
           result.push(obj);
         }
         classroom = JSON.stringify(result);
-        console.warn(classroom);
+        console.log(classroom);
       };
     },
     handleFileUpload3(event) {
@@ -216,7 +216,7 @@ export default {
 
         }
         service = JSON.stringify(result);
-        console.warn(service);
+        console.log(service);
       };
     },
     handleFileUpload4(event) {
@@ -224,14 +224,14 @@ export default {
       let currentline = "";
       let csv = "";
       let headers = "";
-      let result = {};
+      let result = [];
       let reader = new FileReader();
 
       reader.readAsBinaryString(event.target.files[0]);
       reader.onload = event => {
         csv = reader.result;
         lines = csv.split("\r\n");
-        headers = ["id","instructor", "busyDay", "busyTimeSlots1", "busyTimeSlots2", "busyTimeSlots3",
+        headers = ["instructor", "busyDay", "busyTimeSlots1", "busyTimeSlots2", "busyTimeSlots3",
           "busyTimeSlots4", "busyTimeSlots5", "busyTimeSlots6,",
           "busyTimeSlots7", "busyTimeSlots8", "busyTimeSlots9"];
         for (let i = 0; i < lines.length; i++) {
@@ -242,7 +242,7 @@ export default {
           currentline = re[Symbol.replace](currentline, '');
           currentline = currentline.split(",");
 
-          for (let j = 1; j < headers.length; j++) {           
+          for (let j = 0; j < headers.length; j++) {           
               let head = headers[j];
               let value;
               if(currentline[j] != null) { 
@@ -252,23 +252,33 @@ export default {
               }
               obj[head] = value;            
           }
-          result = JSON.stringify(obj);
-          console.warn(result);
+          result.push(obj);
+
         }
-        busy = result;
-        
+        busy = JSON.stringify(result);
+        console.log(busy);
       };
     },
     async createPlan(){
-      let courseData = await axios.post("http://localhost:3000/course", course);
+        
+          await axios.post("http://localhost:3000/course", course);
+        
 
-      let classroomData = await axios.post("http://localhost:3000/classroom", classroom);
+        
+          await axios.post("http://localhost:3000/classroom/", classroom);
+        
 
-      let serviceData = await axios.post("http://localhost:3000/service", service);
+        
+          await axios.post("http://localhost:3000/service/", service);
+        
 
-      let busyData = await axios.post("http://localhost:3000/busy", busy);
+        
+          await axios.post("http://localhost:3000/busy/", busy);
+        
     }
-  }
+
+  } 
+  
 }
 
           
