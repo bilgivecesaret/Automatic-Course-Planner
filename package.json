@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.6.8",
+    "json-server": "^1.0.0-alpha.23",
+    "papaparse": "^5.4.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

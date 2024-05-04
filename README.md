@@ -1,16 +1,26 @@
-CENG206 – Project – Web-based Course Planner
-Implement an automatic course planner for a curriculum semester of a department. 
-In the curriculum, there are several courses for each year of the curriculum. 
-This program will assign a classroom and a time slot for each course in the curriculum. 
-Courses in the same year should not be intersected with each other. 
-There are several classrooms with varying capacities and courses with varying registered students. 
-In addition, for each weekday there are 8 time slots available, (from 8:30 to 16:30), to place a course in a classroom. 
-In the department curriculum, there are some service courses that are given by another department at the university. 
-The time slot of these courses is fixed and predefined. 
-Therefore, you cannot assign different time slots for those courses other than the requested time slot. 
-Furthermore, some instructors may not be available for some time slots. 
-Thus, your program should respect these busy time slots for the respective courses. 
-In the end, this program will show the course schedule for the department on the webpage. 
-In this schedule, there should not be any intersection between courses for a year of the curriculum and respect all constraints. 
-If this program cannot find any possible schedule it will print an error message “There is no way to make a schedule for the department.” 
-Then, you may suggest the user to increase the number of classrooms or their capacity to find a course schedule successfully.
+# Project – Web-based Course Planner
+
+This project automatically creates a lesson plan in accordance with the curriculum period of a department at the university. The app assigns a class and a time slot for each subject in the curriculum. It prevents courses from the same year from intersecting with each other. It takes into account a variety of classes with different capacities and courses with different enrollments of students. Additionally, 9 time slots are available for each weekday (8:30 to 17:30) to accommodate classes. The department curriculum includes service courses offered by another department at the university. The time frame of these courses is fixed and predefined. For this reason, different time zones are not assigned to these courses other than the requested time zone. Additionally, some instructors may not be available during some time periods. The program therefore respects these intensive time periods for relevant courses. This program displays the department's course schedule on its website. In this program, no overlap between courses was prevented and all restrictions were complied with for one year of the curriculum. If this program does not find a possible schedule, it prints the error message "There is no way to schedule for the department." It then suggests the user to increase the number or capacity of classrooms to find the syllabus successfully.
+
+
+## Getting Started
+
+The following steps walk through getting the application running. 
+
+1. [Clone the project](#1-clone-the-project)
+2. [Install and set up the environment](#3-install-and-set-up-the-environment)
+3. [Start the app](#5-start-the-app)
+
+### 1. Clone the project
+
+1. [Clone the project](https://github.com/bilgivecesaret/Automatic-Course-Planner.git), e.g. `git clone git@github.com:bilgivecesaret/Automatic-Course-Planner.git`
+
+### 2. Install and set up the environment
+
+We recommend using VS Code to install and run the application. This application was made using Vue.js. To install Vue.js, visit https://vuejs.org/guide/quick-start.html. Install json-server to access files on the local server. To install json-server, follow the steps at https://www.npmjs.com/package/json-server. The data on the local server is in the directory named "public". Perform the json-server installation command in this directory. Install axios for data transfers. You can access the installation command at https://axios-http.com/docs/intro. Install Papa Parse to convert CSV files to json data type that the application will use. It can be installed with this command: npm install papaparse
+
+### 3. Start the app
+
+Run `npm dev run` to start the app.
+
+**You can now view the app at http://localhost:5173**

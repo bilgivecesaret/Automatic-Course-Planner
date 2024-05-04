@@ -1,0 +1,83 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+}
+
+#header{
+  position: relative;
+  background-image: linear-gradient(to bottom,rgba(48, 213, 200,0.15),rgba(48, 213, 200,0.3)), url("./background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+#header .caption{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color:rgba(6, 77, 81,0.7);
+  width: 100%;
+  text-align: center;
+  
+}
+
+.caption .tcaption{
+  padding: 20px;
+  font-size: 40px;
+  color: #e0cec2
+  
+}
+
+.boxx{
+  color: #d0d7df;
+  background-color: rgb(6, 77, 81);
+  text-align: center;
+  padding: 50px 80px;
+}
+
+.w-part{
+  padding-bottom: 100px;
+  color: #e0cec2;
+}
+
+.sb-btn{
+  margin-top: 50px;
+}
+
+.boxx-2{
+  background-color: #e0cec2;
+}
+
+.boxx-2 .drk{
+  background-color: rgb(6, 77, 81);
+}
+
+td{
+  color: white;
+}
+
+.drk td{
+  color: rgb(6, 77, 81);
+}
+
+.footerp{
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+footer{
+  color: #ba8c73;
+}
+
+.contactp a:hover{
+  color: #ba8c73 !important;
+  transition-duration: 0.7s;
+
+}
