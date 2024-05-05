@@ -18,12 +18,13 @@
             </tr>
             <tr v-for="items in classrooms" :key="items.index">    
               <th> {{items.id}} </th>
-              <th> {{ items.code  }} </th>
+              <th> {{ items.code}} </th>
               <th> {{ items.capacity  }} </th>
               <th> <button>UPDATE</button><button>DELETE</button></th>
             </tr>             
           </tbody>
         </table>
+        <button v-on:click="update">FETCH DATA ON SERVER</button>
   </div>
 </template>
 <script>
@@ -32,18 +33,14 @@ export default {
   name:"Course",
   data() {
       return {
-          classrooms:[{"id":"1","code":"B403","capacity":"100"},
-                      {"id":"2","code":"C501","capacity":"60"},
-                      {"id":"3","code":"C501","capacity":"60"}]
+          classrooms:[]
       };
   },
   methods: {
-
-  },
-  mounted(){
-      let result = axios.get("http://localhost:3000/classroom");
-      this.classrooms.join(result.data);
-      console.log(this.classrooms);
+    update(){
+      axios.get("http://localhost:3000/classroom").then(response => (this.classrooms = response.data));
+      console.log(this.classrooms); 
+    }   
   }
 }
 </script>

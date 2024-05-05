@@ -116,14 +116,13 @@ export default {
                     obj["id"] = i+1;
                     for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
-                        let value = currentline[j];
+                        let value = currentline[j-1];
                         obj[head] = value;
                     }
                     course[i] = obj;
                     Plan1(obj);
-                }
-                console.log(course);
-            };
+                }                                
+            };         
         },
         handleFileUpload2(event) {
             let lines;
@@ -138,23 +137,23 @@ export default {
                 csv = reader.result;
                 lines = csv.split("\r\n");
                 headers = ["id","code", "capacity"];
+
                 for (let i = 0; i < lines.length; i++) {
-                    if (!lines[i]) continue
+                    if (!lines[i]) continue                    
                     currentline = lines[i];
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(";");
                     obj["id"] = i+1;
-                    for (let j = 1; j < headers.length; j++) {
+                    for (let j = 1; j < headers.length+1; j++) {
                         let head = headers[j];
-                        let value = currentline[j];
+                        let value = currentline[j-1];
                         obj[head] = value;
                     }
                     classroom[i] = obj;
                     Plan2(obj);
-                }
-                console.log(classroom);
-            };
+                }               
+            };            
         },
         handleFileUpload3(event) {
             let lines;
@@ -179,8 +178,8 @@ export default {
                     for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
-                        if (currentline[j] != null) {
-                            value = currentline[j];
+                        if (currentline[j-1] != null) {
+                            value = currentline[j-1];
                         } else {
                             value = "";
                         }
@@ -188,9 +187,8 @@ export default {
                     }
                     service[i] = obj;
                     Plan3(obj);
-                }
-                console.log(service);
-            };
+                }                                
+            };            
         },
         handleFileUpload4(event) {
             let lines;
@@ -218,8 +216,8 @@ export default {
                     for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
-                        if (currentline[j] != null) {
-                            value = currentline[j];
+                        if (currentline[j-1] != null) {
+                            value = currentline[j-1];
                         } else {
                             value = "";
                         }
@@ -227,9 +225,8 @@ export default {
                     }
                     busy[i]=obj;
                     Plan4(obj);
-                }
-                console.log(busy);
-            };
+                }                                
+            };          
         }
     }
 }

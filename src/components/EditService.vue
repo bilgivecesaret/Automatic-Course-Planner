@@ -33,6 +33,7 @@
             </tr>            
           </tbody>
         </table>
+        <button v-on:click="update">FETCH DATA ON SERVER</button>
   </div>
 </template>
 <script>
@@ -41,19 +42,14 @@ export default {
   name:"Service",
   data() {
       return {
-          services:[{"id":"1","code":"CHEM101","serviceDay":"Tuesday",
-                            "serviceTimeSlot1":"8:30","serviceTimeSlot2":"9:30","serviceTimeSlot3":"10:30"},
-                    {"id":"2","code":"MATH102","serviceDay":"Monday",
-                            "serviceTimeSlot1":"13:30","serviceTimeSlot2":"14:30","serviceTimeSlot3":"15:30"}]
+          services:[]
       };
   },
   methods: {
-
-  },
-  mounted(){
-      let result = axios.get("http://localhost:3000/service");
-      this.services.join(result.data);
-      console.log(this.services);
+    update(){
+      axios.get("http://localhost:3000/service").then(response => (this.services = response.data));
+      console.log(this.services); 
+    }   
   }
 }
 </script>

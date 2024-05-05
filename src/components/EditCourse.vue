@@ -45,6 +45,7 @@
               </tr>            
             </tbody>
           </table>
+          <button v-on:click="update">FETCH DATA ON SERVER</button>
     </div>
 </template>
 <script>
@@ -53,22 +54,15 @@ export default {
     name:"Course",
     data() {
         return {
-            courses:[   {"id":"1","code":"CENG114","name":"Computer Programming II",
-                                "semester":"1","credit":"5","CorE":"C","DorS":"D","numStudents":"95",
-                                "instructor":"OGR.GOR. YUSUF EVREN AYKAC","preference":"3"},
-                        {"id":"2","code":"CHEM101","name":"GENERAL CHEMISTRY",
-                                "semester":"1","credit":"5","CorE":"C","DorS":"S","numStudents":"110",
-                                "instructor":"DOC.DR. NURAY CELEBI","preference":"3"}]
+            courses:[]
         };
     },
-    methods: {
-
-    },
-    mounted(){
-        let result = axios.get("http://localhost:3000/course");
-        this.courses.join(result.data);
-      console.log(this.courses);
-    }
+  methods: {
+    update(){
+      axios.get("http://localhost:3000/course").then(response => (this.courses = response.data));
+      console.log(this.courses); 
+    }   
+  }
 }
 </script>
 

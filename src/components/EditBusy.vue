@@ -51,6 +51,7 @@
             </tr>              
           </tbody>
         </table>
+        <button v-on:click="update">FETCH DATA ON SERVER</button>
   </div>
 </template>
 <script>
@@ -59,23 +60,14 @@ export default {
   name:"Service",
   data() {
       return {
-          busies:[{"id":"1","instructor":"DOC.DR. NURAY CELEBI","busyDay":"Tuesday",
-                        "busyTimeSlots1":"8:30","busyTimeSlots2":"9:30","busyTimeSlots3":"",
-                        "busyTimeSlots4":"","busyTimeSlots5":"","busyTimeSlots6,":"",
-                        "busyTimeSlots7":"","busyTimeSlots8":"","busyTimeSlots9":""},
-                  {"id":"2","instructor":"DOC.DR. NURAY CELEBI","busyDay":"Friday",
-                        "busyTimeSlots1":"12:30","busyTimeSlots2":"13:30","busyTimeSlots3":"14:30",
-                        "busyTimeSlots4":"","busyTimeSlots5":"","busyTimeSlots6,":"",
-                        "busyTimeSlots7":"","busyTimeSlots8":"","busyTimeSlots9":""}]
+          busies:[]
       };
   },
   methods: {
-
-  },
-  mounted(){
-      let result = axios.get("http://localhost:3000/busy");
-      this.busies.join(result.data);
-      console.log(this.busies);
+    update(){
+      axios.get("http://localhost:3000/busy").then(response => (this.busies = response.data));
+      console.log(this.busies); 
+    }   
   }
 }
 </script>
