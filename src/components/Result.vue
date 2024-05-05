@@ -1,5 +1,5 @@
 <template>
-<div class="planner" v-on:keypress="update">
+<div class="planner">
     <table cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
         <col class="col0" />
         <col class="col1" />
@@ -16,7 +16,7 @@
                 <td class="column0 style6 header" colspan="10">{{ facultyTitle }}</td>
             </tr>
             <tr class="rowTitle2">
-                <td class="column0 style6 header" colspan="10">{{ semerterTitle }}</td>
+                <td class="column0 style6 header" colspan="10">{{ semerterTitle() }}</td>
             </tr>
             <tr class="rowTitle3">
                 <td class="column0 style6" colspan="2"></td>
@@ -549,19 +549,14 @@ export default {
                 lesson7: "14:30 - 15:20",
                 lesson8: "15:30 - 16:20",
                 lesson9: "16:30 - 17:20"
-            },
-            services:[]
+            }
         };
     },
     methods: {
-        semerterTitle: function () {
+        semerterTitle() {
             return this.semesterTitleFirstPart + " " + this.semerterTitleSecondPart;
-        },
-        update(event){
-            axios.get("http://localhost:3000/service").then(response => (this.services = response.data));
         }
-
-    },
+    }
 };
 
 
