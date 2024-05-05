@@ -1,5 +1,7 @@
-html { font-family:'Times New Roman', Times, serif; font-size:11pt; background-color:white }
-table { border-collapse:collapse; page-break-after:always }
+html { font-family:'Times New Roman', Times, serif; font-size:11pt; height: 100vh}
+body { margin:0; background-color:linear-gradient(to bottom,rgba(48, 213, 200,0.15),rgba(48, 213, 200,0.3)) }
+div.planner{height: 90vh}
+table { border-collapse:collapse; page-break-after:always;}
 .gridlines td, .gridlines th { border:1px solid black }
 .header { font-weight:bold; color:#333333;}
 table.sheet0 td , table.sheet0 th{ vertical-align:middle; text-align:center; border:1px solid #000000 !important; 
@@ -18,5 +20,3 @@ table.sheet0 tr.row0 { height:16.05pt }
 table.sheet0 tr.row1 { height:16.05pt }
 table.sheet0 tr.row2 { height:16.05pt }
 table.sheet0 tr { height:13.95pt }
-@page { margin-left: 0.75in; margin-right: 0.75in; margin-top: 0.50in; margin-bottom: 0.50in; }
-body { margin-left: 0.75in; margin-right: 0.75in; margin-top: 0.50in; margin-bottom: 0.50in; }
