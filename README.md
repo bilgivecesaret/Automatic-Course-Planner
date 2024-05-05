@@ -22,6 +22,7 @@ We recommend using VS Code to install and run the application. This application 
 ### 3. Start the app
 
 Run `npm dev run` into terminal to start the app.
-Run `npx json-server db.json` into terminal to start the db.json.
+Type 'cd public' into terminal to access the json datas.
+Run `npx json-server db.json` into terminal to start the database db.json
 
 **You can now view the app at http://localhost:5173**
