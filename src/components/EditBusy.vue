@@ -19,11 +19,35 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in busies" :key="item.id">    
+            <tr>
+              <th scope="row"> # </th>
+              <th> <input type="text" class="form-control" id="add1"> </th>
+              <th> <input type="text" class="form-control" id="add2"> </th>
+              <th> <input type="text" class="form-control" id="add3"> </th>
+              <th> <input type="text" class="form-control" id="add4"> </th>
+              <th> <input type="text" class="form-control" id="add5"> </th>
+              <th> <input type="text" class="form-control" id="add6"> </th>
+              <th> <input type="text" class="form-control" id="add7"> </th>
+              <th> <input type="text" class="form-control" id="add8"> </th>
+              <th> <input type="text" class="form-control" id="add9"> </th>
+              <th> <input type="text" class="form-control" id="add10"> </th>
+              <th> <input type="text" class="form-control" id="add11"> </th>
+              <th> <button>ADD</button></th>
+            </tr>
+            <tr v-for="item in busies" :key="item.index">    
               <th scope="row"> {{item.id}} </th>
-              <td> {{ item.code  }} </td>
-              <td> {{ item.code  }} </td>
-              <td> <button>ADD</button><button>UPDATE</button><button>DELETE</button></td>
+              <th> {{ item.instructor  }} </th>
+              <th> {{ item.busyDay  }} </th>
+              <th> {{ item.busyTimeSlots1 }} </th>
+              <th> {{ item.busyTimeSlots2 }} </th>
+              <th> {{ item.busyTimeSlots3 }} </th>
+              <th> {{ item.busyTimeSlots4 }} </th>
+              <th> {{ item.busyTimeSlots5 }} </th>
+              <th> {{ item.busyTimeSlots6 }} </th>
+              <th> {{ item.busyTimeSlots7 }} </th>
+              <th> {{ item.busyTimeSlots8 }} </th>
+              <th> {{ item.busyTimeSlots9 }} </th>
+              <th> <button>UPDATE</button><button>DELETE</button></th>
             </tr>              
           </tbody>
         </table>

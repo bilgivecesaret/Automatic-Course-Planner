@@ -13,14 +13,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in services" :key="item.id">    
+            <tr>
+              <th scope="row"> # </th>
+              <th> <input type="text" class="form-control" id="add1"> </th>
+              <th> <input type="text" class="form-control" id="add2"> </th>
+              <th> <input type="text" class="form-control" id="add3"> </th>
+              <th> <input type="text" class="form-control" id="add4"> </th>
+              <th> <input type="text" class="form-control" id="add5"> </th>
+              <th> <button>ADD</button></th>
+            </tr>
+            <tr v-for="item in services" :key="item.index">    
               <th scope="row"> {{item.id}} </th>
-              <td> {{ item.code  }} </td>
-              <td> {{ item.capacity  }} </td>
-              <td> {{ item.serviceTimeSlot1}} </td>
-              <td> {{ item.serviceTimeSlot2}} </td>
-              <td> {{ item.serviceTimeSlot3}} </td>
-              <td> <button>ADD</button><button>UPDATE</button><button>DELETE</button></td>
+              <th> {{ item.code  }} </th>
+              <th> {{ item.capacity  }} </th>
+              <th> {{ item.serviceTimeSlot1}} </th>
+              <th> {{ item.serviceTimeSlot2}} </th>
+              <th> {{ item.serviceTimeSlot3}} </th>
+              <th> <button>ADD</button><button>UPDATE</button><button>DELETE</button></th>
             </tr>            
           </tbody>
         </table>

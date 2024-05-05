@@ -10,11 +10,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in classrooms" :key="item.id">    
-              <th scope="row"> {{item.id}} </th>
-              <td> {{ item.code  }} </td>
-              <td> {{ item.capacity  }} </td>
-              <td> <button>ADD</button><button>UPDATE</button><button>DELETE</button></td>
+            <tr>
+              <th scope="row"> # </th>
+              <th> <input type="text" class="form-control" id="add1"> </th>
+              <th> <input type="text" class="form-control" id="add2"> </th>
+              <th> <button>ADD</button></th>
+            </tr>
+            <tr v-for="items in classrooms" :key="items.index">    
+              <th> {{items.id}} </th>
+              <th> {{ items.code  }} </th>
+              <th> {{ items.capacity  }} </th>
+              <th> <button>UPDATE</button><button>DELETE</button></th>
             </tr>             
           </tbody>
         </table>
@@ -27,7 +33,8 @@ export default {
   data() {
       return {
           classrooms:[{"id":"1","code":"B403","capacity":"100"},
-                      {"id":"2","code":"C501","capacity":"60"}]
+                      {"id":"2","code":"C501","capacity":"60"},
+                      {"id":"3","code":"C501","capacity":"60"}]
       };
   },
   methods: {

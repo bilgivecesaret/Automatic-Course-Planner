@@ -17,18 +17,31 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in courses" :key="item.id">    
+              <tr>
+                <th scope="row"> # </th>
+                <th> <input type="text" class="form-control" id="add1"> </th>
+                <th> <input type="text" class="form-control" id="add2"> </th>
+                <th> <input type="text" class="form-control" id="add3"> </th>
+                <th> <input type="text" class="form-control" id="add4"> </th>
+                <th> <input type="text" class="form-control" id="add5"> </th>
+                <th> <input type="text" class="form-control" id="add6"> </th>
+                <th> <input type="text" class="form-control" id="add7"> </th>
+                <th> <input type="text" class="form-control" id="add8"> </th>
+                <th> <input type="text" class="form-control" id="add8"> </th>
+                <th> <button>ADD</button></th>
+              </tr>
+              <tr v-for="item in courses" :key="item.index">    
                 <th scope="row"> {{item.id}} </th>
-                <td> {{ item.code  }} </td>
-                <td> {{ item.name  }} </td>
-                <td> {{ item.semester  }} </td>
-                <td> {{ item.credit  }} </td>
-                <td> {{ item.CorE  }} </td>
-                <td> {{ item.DorS  }} </td>
-                <td> {{ item.numStudents  }} </td>
-                <td> {{ item.instructor  }} </td>
-                <td> {{ item.preference  }} </td>
-                <td> <button>ADD</button><button>UPDATE</button><button>DELETE</button></td>
+                <th> {{ item.code  }} </th>
+                <th> {{ item.name  }} </th>
+                <th> {{ item.semester  }} </th>
+                <th> {{ item.credit  }} </th>
+                <th> {{ item.CorE  }} </th>
+                <th> {{ item.DorS  }} </th>
+                <th> {{ item.numStudents  }} </th>
+                <th> {{ item.instructor  }} </th>
+                <th> {{ item.preference  }} </th>
+                <th> <button>UPDATE</button><button>DELETE</button></th>
               </tr>            
             </tbody>
           </table>
