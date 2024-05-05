@@ -1,5 +1,5 @@
 <template>
-<div class="planner">
+<div class="planner" v-on:keypress="update">
     <table cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
         <col class="col0" />
         <col class="col1" />
@@ -534,7 +534,6 @@
 export default {
     data() {
         return {
-            R45C3: "CODE GELDİ",
             facultyTitle: "ANKARA YILDIRIM BEYAZIT UNIVERSITY FACULTY OF ENGINEERING AND NATURAL SCIENCES",
             semesterTitleFirstPart: "2023 - 2024 SPRING",
             semerterTitleSecondPart: "SEMESTER WEEKLY SCHEDULE (COMPUTER ENGINEERING DEPARTMENT)",
@@ -550,16 +549,22 @@ export default {
                 lesson7: "14:30 - 15:20",
                 lesson8: "15:30 - 16:20",
                 lesson9: "16:30 - 17:20"
-            }
+            },
+            services:[]
         };
     },
-    methods: {},
-    computed: {
+    methods: {
         semerterTitle: function () {
             return this.semesterTitleFirstPart + " " + this.semerterTitleSecondPart;
         },
+        update(event){
+            axios.get("http://localhost:3000/service").then(response => (this.services = response.data));
+        }
+
     },
 };
+
+
 </script>
 
 <style src="./src/assets/result.css" />

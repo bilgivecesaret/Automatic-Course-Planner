@@ -25,7 +25,7 @@
             <tr v-for="item in services" :key="item.index">    
               <th scope="row"> {{item.id}} </th>
               <th> {{ item.code  }} </th>
-              <th> {{ item.capacity  }} </th>
+              <th> {{ item.serviceDay  }} </th>
               <th> {{ item.serviceTimeSlot1}} </th>
               <th> {{ item.serviceTimeSlot2}} </th>
               <th> {{ item.serviceTimeSlot3}} </th>
