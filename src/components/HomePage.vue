@@ -81,10 +81,10 @@
 
 <script>
 import axios from 'axios'
-let course = null;
-let classroom = null;
-let service = null;
-let busy = null;
+let course = [];
+let classroom = [];
+let service = [];
+let busy = [];
 export default {
     name:"Home",
     data() {
@@ -94,11 +94,11 @@ export default {
     },
     methods: {
         handleFileUpload1(event) {
-            let lines = "";
-            let currentline = "";
-            let csv = "";
-            let headers = "";
-            let result = [];
+            let lines;
+            let currentline;
+            let csv;
+            let headers;
+            let obj={};
             let reader = new FileReader();
 
             reader.readAsBinaryString(event.target.files[0]);
@@ -108,8 +108,7 @@ export default {
                 headers = ["id","code", "name", "semester", "credit", "CorE", "DorS", "numStudents", "instructor", "preference"];
 
                 for (let i = 0; i < lines.length; i++) {
-                    if (!lines[i]) continue
-                    let obj = {};
+                    if (!lines[i]) continue                    
                     currentline = lines[i];
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
@@ -120,18 +119,18 @@ export default {
                         let value = currentline[j];
                         obj[head] = value;
                     }
-                    result.push(obj);
+                    course[i] = obj;
+                    Plan1(obj);
                 }
-                course = JSON.stringify(result);
                 console.log(course);
             };
         },
         handleFileUpload2(event) {
-            let lines = "";
-            let currentline = "";
-            let csv = "";
-            let headers = "";
-            let result = [];
+            let lines;
+            let currentline;
+            let csv;
+            let headers;
+            let obj={};
             let reader = new FileReader();
 
             reader.readAsBinaryString(event.target.files[0]);
@@ -141,29 +140,28 @@ export default {
                 headers = ["id","code", "capacity"];
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue
-                    let obj = {};
                     currentline = lines[i];
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(";");
                     obj["id"] = i+1;
-                    for (let j = 0; j < headers.length; j++) {
+                    for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
                         let value = currentline[j];
                         obj[head] = value;
                     }
-                    result.push(obj);
+                    classroom[i] = obj;
+                    Plan2(obj);
                 }
-                classroom = JSON.stringify(result);
                 console.log(classroom);
             };
         },
         handleFileUpload3(event) {
-            let lines = "";
-            let currentline = "";
-            let csv = "";
-            let headers = "";
-            let result = [];
+            let lines;
+            let currentline;
+            let csv;
+            let headers;
+            let obj={};
             let reader = new FileReader();
 
             reader.readAsBinaryString(event.target.files[0]);
@@ -173,13 +171,12 @@ export default {
                 headers = ["id","code", "serviceDay", "serviceTimeSlot1", "serviceTimeSlot2", "serviceTimeSlot3"];
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue
-                    let obj = {};
                     currentline = lines[i];
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
                     obj["id"] = i+1;
-                    for (let j = 0; j < headers.length; j++) {
+                    for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
                         if (currentline[j] != null) {
@@ -189,19 +186,18 @@ export default {
                         }
                         obj[head] = value;
                     }
-                    result.push(obj);
-
+                    service[i] = obj;
+                    Plan3(obj);
                 }
-                service = JSON.stringify(result);
                 console.log(service);
             };
         },
         handleFileUpload4(event) {
-            let lines = "";
-            let currentline = "";
-            let csv = "";
-            let headers = "";
-            let result = [];
+            let lines;
+            let currentline;
+            let csv;
+            let headers;
+            let obj={};
             let reader = new FileReader();
 
             reader.readAsBinaryString(event.target.files[0]);
@@ -214,13 +210,12 @@ export default {
                 ];
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue
-                    let obj = {};
                     currentline = lines[i];
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
                     obj["id"] = i+1;
-                    for (let j = 0; j < headers.length; j++) {
+                    for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
                         if (currentline[j] != null) {
@@ -230,20 +225,27 @@ export default {
                         }
                         obj[head] = value;
                     }
-                    result.push(obj);
-
+                    busy[i]=obj;
+                    Plan4(obj);
                 }
-                busy = JSON.stringify(result);
                 console.log(busy);
             };
-        },
-        async createPlan() {
-            await axios.post("http://localhost:3000/course", course);
-            await axios.post("http://localhost:3000/classroom/", classroom);
-            await axios.post("http://localhost:3000/service/", service);
-            await axios.post("http://localhost:3000/busy/", busy);
         }
     }
 }
+
+async function Plan1(course) {
+    await axios.post("http://localhost:3000/course", course);
+};
+async function Plan2(classroom) {
+    await axios.post("http://localhost:3000/classroom/", classroom);
+};
+async function Plan3(service) {
+    await axios.post("http://localhost:3000/service/", service);
+};
+async function Plan4(busy) {
+    await axios.post("http://localhost:3000/busy/", busy);
+};
+
 </script>
 <style src="./src/assets/home.css" />

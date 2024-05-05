@@ -1,6 +1,86 @@
 {
-    "course":[],
-    "classroom":[],
-    "service":[],
-    "busy":[]
+  "course": [
+    {
+      "id": "1",
+      "code": "Computer Programming II",
+      "name": "1",
+      "semester": "5",
+      "credit": "C",
+      "CorE": "D",
+      "DorS": "95",
+      "numStudents": "OGR.GOR. YUSUF EVREN AYKAC",
+      "instructor": "3"
+    },
+    {
+      "id": "2",
+      "code": "GENERAL CHEMISTRY",
+      "name": "1",
+      "semester": "5",
+      "credit": "C",
+      "CorE": "S",
+      "DorS": "110",
+      "numStudents": "DOC.DR. NURAY CELEBI",
+      "instructor": "3"
+    }
+  ],
+  "classroom": [
+    {
+      "id": "1",
+      "code": "B403",
+      "capacity": "100"
+    },
+    {
+      "id": "2",
+      "code": "C501",
+      "capacity": "60"
+    }
+  ],
+  "service": [
+    {
+      "id": "1",
+      "code": "Tuesday",
+      "serviceDay": "8:30",
+      "serviceTimeSlot1": "9:30",
+      "serviceTimeSlot2": "10:30",
+      "serviceTimeSlot3": ""
+    },
+    {
+      "id": "2",
+      "code": "Monday",
+      "serviceDay": "13:30",
+      "serviceTimeSlot1": "14:30",
+      "serviceTimeSlot2": "15:30",
+      "serviceTimeSlot3": ""
+    }
+  ],
+  "busy": [
+    {
+      "id": "1",
+      "instructor": "Monday",
+      "busyDay": "8:30",
+      "busyTimeSlots1": "9:30",
+      "busyTimeSlots2": "",
+      "busyTimeSlots3": "",
+      "busyTimeSlots4": "",
+      "busyTimeSlots5": "",
+      "busyTimeSlots6,": "",
+      "busyTimeSlots7": "",
+      "busyTimeSlots8": "",
+      "busyTimeSlots9": ""
+    },
+    {
+      "id": "2",
+      "instructor": "Monday",
+      "busyDay": "11:30",
+      "busyTimeSlots1": "12:30",
+      "busyTimeSlots2": "",
+      "busyTimeSlots3": "",
+      "busyTimeSlots4": "",
+      "busyTimeSlots5": "",
+      "busyTimeSlots6,": "",
+      "busyTimeSlots7": "",
+      "busyTimeSlots8": "",
+      "busyTimeSlots9": ""
+    }
+  ]
 }
