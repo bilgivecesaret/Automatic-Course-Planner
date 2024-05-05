@@ -17,10 +17,11 @@ The following steps walk through getting the application running.
 
 ### 2. Install and set up the environment
 
-We recommend using VS Code to install and run the application. This application was made using Vue.js. To install Vue.js, visit https://vuejs.org/guide/quick-start.html. Install json-server to access files on the local server. To install json-server, follow the steps at https://www.npmjs.com/package/json-server. The data on the local server is in the directory named "public". Perform the json-server installation command in this directory. Install axios for data transfers. You can access the installation command at https://axios-http.com/docs/intro. 
+We recommend using VS Code to install and run the application. This application was made using Vue.js. To install Vue.js, visit https://vuejs.org/guide/quick-start.html. Install json-server to access files on the local server. To install json-server, follow the steps at https://www.npmjs.com/package/json-server. Perform the json-server installation command in this directory. Install axios for data transfers. You can access the installation command at https://axios-http.com/docs/intro. 
 
 ### 3. Start the app
 
-Run `npm dev run` to start the app.
+Run `npm dev run` into terminal to start the app.
+Run `npx json-server db.json` into terminal to start the db.json.
 
 **You can now view the app at http://localhost:5173**

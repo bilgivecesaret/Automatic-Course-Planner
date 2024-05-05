@@ -50,8 +50,8 @@ export default {
   },
   mounted(){
       let result = axios.get("http://localhost:3000/busy");
-      this.busies = result.data;
-      console.log(result.data);
+      this.busies.join(result.data);
+      console.log(this.busies);
   }
 }
 </script>

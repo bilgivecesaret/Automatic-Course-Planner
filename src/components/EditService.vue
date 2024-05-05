@@ -43,8 +43,8 @@ export default {
   },
   mounted(){
       let result = axios.get("http://localhost:3000/service");
-      this.services = result.data;
-      console.log(result.data);
+      this.services.join(result.data);
+      console.log(this.services);
   }
 }
 </script>

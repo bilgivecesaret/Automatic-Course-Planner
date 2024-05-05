@@ -53,8 +53,8 @@ export default {
     },
     mounted(){
         let result = axios.get("http://localhost:3000/course");
-        this.courses = result.data;
-        console.log(this.course);
+        this.courses.join(result.data);
+      console.log(this.courses);
     }
 }
 </script>

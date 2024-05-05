@@ -35,8 +35,8 @@ export default {
   },
   mounted(){
       let result = axios.get("http://localhost:3000/classroom");
-      this.classrooms = result.data;
-      console.log(result.data);
+      this.classrooms.join(result.data);
+      console.log(this.classrooms);
   }
 }
 </script>
