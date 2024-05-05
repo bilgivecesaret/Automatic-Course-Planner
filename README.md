@@ -13,7 +13,7 @@ The following steps walk through getting the application running.
 
 ### 1. Clone the project
 
-1. [Clone the project](https://github.com/bilgivecesaret/Automatic-Course-Planner.git), e.g. `git clone git@github.com:bilgivecesaret/Automatic-Course-Planner.git`
+1. [Clone the project](https://github.com/bilgivecesaret/Automatic-Course-Planner.git), e.g. `gh repo clone bilgivecesaret/Automatic-Course-Planner`
 
 ### 2. Install and set up the environment
 
