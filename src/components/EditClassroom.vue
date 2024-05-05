@@ -10,11 +10,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item,index) in classrooms">    
-              <th scope="row"> {{index}} </th>
-              <td v-for="value in item.code" > {{ value  }} </td>
-              <td v-for="value in item.capacity" > {{ value  }} </td>
-            </tr>              
+            <tr v-for="item in classrooms" :key="item.id">    
+              <th scope="row"> {{item.id}} </th>
+              <td> {{ item.code  }} </td>
+              <td> {{ item.capacity  }} </td>
+              <td> <button>ADD</button><button>UPDATE</button><button>DELETE</button></td>
+            </tr>             
           </tbody>
         </table>
   </div>
@@ -25,8 +26,8 @@ export default {
   name:"Course",
   data() {
       return {
-          classrooms:[{"code":"B403","capacity":"100"},
-                      {"code":"C501","capacity":"60"}]
+          classrooms:[{"id":"1","code":"B403","capacity":"100"},
+                      {"id":"2","code":"C501","capacity":"60"}]
       };
   },
   methods: {

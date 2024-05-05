@@ -19,10 +19,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item,index) in busies">    
-              <th scope="row"> {{index}} </th>
-              <td v-for="value in item.code" > {{ value  }} </td>
-              <td v-for="value in item.capacity" > {{ value  }} </td>
+            <tr v-for="item in busies" :key="item.id">    
+              <th scope="row"> {{item.id}} </th>
+              <td> {{ item.code  }} </td>
+              <td> {{ item.code  }} </td>
+              <td> <button>ADD</button><button>UPDATE</button><button>DELETE</button></td>
             </tr>              
           </tbody>
         </table>
@@ -34,11 +35,11 @@ export default {
   name:"Service",
   data() {
       return {
-          busies:[{"instructor":"DOC.DR. NURAY CELEBI","busyDay":"Tuesday",
+          busies:[{"id":"1","instructor":"DOC.DR. NURAY CELEBI","busyDay":"Tuesday",
                         "busyTimeSlots1":"8:30","busyTimeSlots2":"9:30","busyTimeSlots3":"",
                         "busyTimeSlots4":"","busyTimeSlots5":"","busyTimeSlots6,":"",
                         "busyTimeSlots7":"","busyTimeSlots8":"","busyTimeSlots9":""},
-                  {"instructor":"DOC.DR. NURAY CELEBI","busyDay":"Friday",
+                  {"id":"2","instructor":"DOC.DR. NURAY CELEBI","busyDay":"Friday",
                         "busyTimeSlots1":"12:30","busyTimeSlots2":"13:30","busyTimeSlots3":"14:30",
                         "busyTimeSlots4":"","busyTimeSlots5":"","busyTimeSlots6,":"",
                         "busyTimeSlots7":"","busyTimeSlots8":"","busyTimeSlots9":""}]

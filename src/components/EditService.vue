@@ -13,14 +13,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item,index) in services">    
-              <th scope="row"> {{index}} </th>
-              <td v-for="value in item.code" > {{ value  }} </td>
-              <td v-for="value in item.capacity" > {{ value  }} </td>
-              <td v-for="value in item.ti" > {{ value  }} </td>
-              <td v-for="value in item.capacity" > {{ value  }} </td>
-              <td v-for="value in item.capacity" > {{ value  }} </td>
-            </tr>              
+            <tr v-for="item in services" :key="item.id">    
+              <th scope="row"> {{item.id}} </th>
+              <td> {{ item.code  }} </td>
+              <td> {{ item.capacity  }} </td>
+              <td> {{ item.serviceTimeSlot1}} </td>
+              <td> {{ item.serviceTimeSlot2}} </td>
+              <td> {{ item.serviceTimeSlot3}} </td>
+              <td> <button>ADD</button><button>UPDATE</button><button>DELETE</button></td>
+            </tr>            
           </tbody>
         </table>
   </div>
@@ -31,9 +32,9 @@ export default {
   name:"Service",
   data() {
       return {
-          services:[{"code":"CHEM101","serviceDay":"Tuesday",
+          services:[{"id":"1","code":"CHEM101","serviceDay":"Tuesday",
                             "serviceTimeSlot1":"8:30","serviceTimeSlot2":"9:30","serviceTimeSlot3":"10:30"},
-                    {"code":"MATH102","serviceDay":"Monday",
+                    {"id":"2","code":"MATH102","serviceDay":"Monday",
                             "serviceTimeSlot1":"13:30","serviceTimeSlot2":"14:30","serviceTimeSlot3":"15:30"}]
       };
   },

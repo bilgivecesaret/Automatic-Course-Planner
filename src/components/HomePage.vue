@@ -105,7 +105,7 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["code", "name", "semester", "credit", "CorE", "DorS", "numStudents", "instructor", "preference"];
+                headers = ["id","code", "name", "semester", "credit", "CorE", "DorS", "numStudents", "instructor", "preference"];
 
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue
@@ -114,8 +114,8 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
-
-                    for (let j = 0; j < headers.length; j++) {
+                    obj["id"] = i+1;
+                    for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
                         let value = currentline[j];
                         obj[head] = value;
@@ -138,7 +138,7 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["code", "capacity"];
+                headers = ["id","code", "capacity"];
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue
                     let obj = {};
@@ -146,7 +146,7 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(";");
-
+                    obj["id"] = i+1;
                     for (let j = 0; j < headers.length; j++) {
                         let head = headers[j];
                         let value = currentline[j];
@@ -170,7 +170,7 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["code", "serviceDay", "serviceTimeSlot1", "serviceTimeSlot2", "serviceTimeSlot3"];
+                headers = ["id","code", "serviceDay", "serviceTimeSlot1", "serviceTimeSlot2", "serviceTimeSlot3"];
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue
                     let obj = {};
@@ -178,7 +178,7 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
-
+                    obj["id"] = i+1;
                     for (let j = 0; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
@@ -208,7 +208,7 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["instructor", "busyDay", "busyTimeSlots1", "busyTimeSlots2", "busyTimeSlots3",
+                headers = ["id","instructor", "busyDay", "busyTimeSlots1", "busyTimeSlots2", "busyTimeSlots3",
                     "busyTimeSlots4", "busyTimeSlots5", "busyTimeSlots6,",
                     "busyTimeSlots7", "busyTimeSlots8", "busyTimeSlots9"
                 ];
@@ -219,7 +219,7 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
-
+                    obj["id"] = i+1;
                     for (let j = 0; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
