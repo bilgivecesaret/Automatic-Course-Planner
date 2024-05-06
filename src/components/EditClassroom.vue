@@ -24,7 +24,9 @@
             </tr>             
           </tbody>
         </table>
-        <button v-on:click="update">FETCH DATA ON SERVER</button>
+  </div>
+  <div>
+    <button type="button" class="btn btn-success" v-on:click="update">FETCH DATA FROM SERVER</button>
   </div>
 </template>
 <script>

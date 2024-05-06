@@ -20,3 +20,13 @@ table.sheet0 tr.row0 { height:16.05pt }
 table.sheet0 tr.row1 { height:16.05pt }
 table.sheet0 tr.row2 { height:16.05pt }
 table.sheet0 tr { height:13.95pt }
+.result.button{
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+    position: fixed;
+    top: 25%;
+    right: 10%;
+    width: 150px;
+    height: 100px;
+}

@@ -528,6 +528,9 @@
         </tbody>
     </table>
 </div>
+<div>
+    <button type="button" class="result button">Make Plan</button>
+</div>
 </template>
 
 <script>
@@ -549,13 +552,20 @@ export default {
                 lesson7: "14:30 - 15:20",
                 lesson8: "15:30 - 16:20",
                 lesson9: "16:30 - 17:20"
-            }
+            },
+            courses:[], classrooms:[],services:[], busies:[]
         };
     },
     methods: {
         semerterTitle() {
             return this.semesterTitleFirstPart + " " + this.semerterTitleSecondPart;
-        }
+        },
+        update(){
+            axios.get("http://localhost:3000/course").then(response => (this.courses = response.data)); 
+            axios.get("http://localhost:3000/classroom").then(response => (this.classrooms = response.data));
+            axios.get("http://localhost:3000/service").then(response => (this.services = response.data));
+            axios.get("http://localhost:3000/busy").then(response => (this.busies = response.data));
+        }   
     }
 };
 

@@ -70,12 +70,6 @@
             </div>
         </div>
     </div>
-
-    <div class="mb-4">
-        <button v-on:click="createPlan()" class="btn btn-secondary sb-btn">
-            Make Plan
-        </button>
-    </div>
 </div>
 </template>
 
@@ -99,9 +93,13 @@ export default {
             let csv;
             let headers;
             let obj={};
+            let selectedFile = event.target.files[0];
+            if (!selectedFile.name.toLowerCase().startsWith('course')) {
+                alert('Please select a COURSE.CSV file.');
+                return;
+            }
             let reader = new FileReader();
-
-            reader.readAsBinaryString(event.target.files[0]);
+            reader.readAsBinaryString(selectedFile);
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
@@ -130,9 +128,13 @@ export default {
             let csv;
             let headers;
             let obj={};
+            let selectedFile = event.target.files[0];
+            if (!selectedFile.name.toLowerCase().startsWith('classroom')) {
+                alert('Please select a CLASSROOM.CSV file.');
+                return;
+            }
             let reader = new FileReader();
-
-            reader.readAsBinaryString(event.target.files[0]);
+            reader.readAsBinaryString(selectedFile);
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
@@ -161,9 +163,13 @@ export default {
             let csv;
             let headers;
             let obj={};
+            let selectedFile = event.target.files[0];
+            if (!selectedFile.name.toLowerCase().startsWith('service')) {
+                alert('Please select a SERVICE.CSV file.');
+                return;
+            }
             let reader = new FileReader();
-
-            reader.readAsBinaryString(event.target.files[0]);
+            reader.readAsBinaryString(selectedFile);
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
@@ -196,9 +202,13 @@ export default {
             let csv;
             let headers;
             let obj={};
+            let selectedFile = event.target.files[0];
+            if (!selectedFile.name.toLowerCase().startsWith('busy')) {
+                alert('Please select a BUSY.CSV file.');
+                return;
+            }
             let reader = new FileReader();
-
-            reader.readAsBinaryString(event.target.files[0]);
+            reader.readAsBinaryString(selectedFile);
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
