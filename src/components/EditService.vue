@@ -49,8 +49,7 @@ export default {
   },
   methods: {
     update(){
-      axios.get("http://localhost:3000/service").then(response => (this.services = response.data));
-      console.log(this.services); 
+      axios.get("http://localhost:3000/service").then(response => (this.services = response.data)); 
     }   
   }
 }

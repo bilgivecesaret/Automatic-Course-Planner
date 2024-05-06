@@ -41,7 +41,6 @@ export default {
   methods: {
     update(){
       axios.get("http://localhost:3000/classroom").then(response => (this.classrooms = response.data));
-      console.log(this.classrooms); 
     }   
   }
 }

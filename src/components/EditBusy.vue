@@ -68,7 +68,6 @@ export default {
   methods: {
     update(){
       axios.get("http://localhost:3000/busy").then(response => (this.busies = response.data));
-      console.log(this.busies); 
     }   
   }
 }
