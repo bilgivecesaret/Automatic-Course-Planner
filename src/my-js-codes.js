@@ -1,7 +1,9 @@
-export function initialPlan(planArray){
+export function initialPlan(){
+    let plan = [];
     for(let i=0; i<360; i++){
-        planArray[i] = " ";
+        plan[i] = i.toString();
     } 
+    return plan;
 }
 
 function findYear(semester){
@@ -80,7 +82,6 @@ function findClassroom(lectureCode, classroomArray,courseArray){
 }
 
 export function placeService(planArray, serviceArray, classroomArray, courseArray){ 
-    
     for(let service in serviceArray){
         let placedClassroom = findClassroom(service.code,classroomArray,courseArray);
         let day = findDay(service.serviceDay);
@@ -101,4 +102,5 @@ export function placeService(planArray, serviceArray, classroomArray, courseArra
         planArray[location3] = lecture;
         planArray[location3 + 1] = placedClassroom;
     }
+    return planArray;
 }
