@@ -106,10 +106,10 @@ export function placeService(plan){
         plan[location2] = lecture;
         plan[location2 + 1] = placedClassroom;
         plan[location3] = lecture;
-        plan[location3 + 1] = placedClassroom;
-        plan[16] = "CENG 114";
-        plan[17] = "C111";
-        plan[34] = "CENG 202";
-        plan[35] = "B414";
+        plan[location3 + 1] = placedClassroom;        
     }
+    plan[16] = "CENG 114";
+    plan[17] = "C111";
+    plan[34] = "CENG 202";
+    plan[35] = "B414";
 }
