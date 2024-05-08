@@ -1,12 +1,7 @@
 import axios from "axios";
 var courses = [], classrooms = [], services = [], busies = [], plan = [];
-var semester="", day="", time="", lectureCode="";
+var day="",semester="", time="";
 var year, days, times;
-
-axios.get("http://localhost:3000/course").then(response => (courses = response.data)); 
-axios.get("http://localhost:3000/classroom").then(response => (classrooms = response.data));
-axios.get("http://localhost:3000/service").then(response => (services = response.data));
-axios.get("http://localhost:3000/busy").then(response => (busies = response.data)); 
 
 export function initialPlan(){
     for(let i=0; i<360; i++){
@@ -23,11 +18,11 @@ function findYear(semester){
 }
 
 function findDay(day){
-    if(day == "Monday") return 0;
-    else if(day == "Tuesday") return 1;
-    else if(day == "Wednesday") return 2;
-    else if(day == "Thursday") return 3;
-    else if(day == "Friday") return 4;
+    if(day.toLowerCase() == "monday") return 0;
+    else if(day.toLowerCase() == "tuesday") return 1;
+    else if(day.toLowerCase() == "wednesday") return 2;
+    else if(day.toLowerCase() == "thursday") return 3;
+    else if(day.toLowerCase() == "friday") return 4;
     else return -1;
 };
 
@@ -45,71 +40,77 @@ function findTimeSlot(time){
 }
 
 function findLocation(year, days, times){
-    if(year == -1 || day == -1 || time == -1){
+    if(year == -1 || days == -1 || times == -1){
         return;
     }  
     var dayBlock=72;
     var timeBlock=8;
     var yearBlock=2;
-    return dayBlock*day + yearBlock*year + timeBlock*time;    
+    return dayBlock*days + yearBlock*year + timeBlock*times;    
 }
 
 function matchCourseSemesterYear(lectureCode){
-    for(let course in courses){
-        if(course.code == lectureCode){
-            return findYear(course.semester);
-        }
+    const course = courses.find(element => element.code === lectureCode);
+    if (course) {
+        return findYear(course.semester);
     }
+    return null;    
 }
 
 function matchCourseNumberOfStudents(lectureCode){
-    for(let course in courses){
-        if(course.code == lectureCode){
-            return course.numStudents;
-        }
+    const course = courses.find(element => element.code === lectureCode);
+    if (course) {
+        return course.numStudents;
     }
+    return null;
 }
 
 function matchCourseInstructor(lectureCode){
-    for(let course in courses){
-        if(course.code == lectureCode){
-            return course.instructor;
-        }
+    const course = courses.find(element => element.code === lectureCode);
+    if (course) {
+        return course.instructor;
     }
+    return null;
 }
 
 
 function findClassroom(lectureCode){
-    let numStudent = matchCourseNumberOfStudents(lectureCode);
-    for(let classes in classrooms){
-        if(classes.capacity >= numStudent){
-            return classes.code;
+    var numStudents = matchCourseNumberOfStudents(lectureCode);
+    if (numStudents !== null) {
+        // Find a classroom that can accommodate the number of students
+        const suitableClassroom = classrooms.find(classroom => parseInt(classroom.capacity) >= parseInt(numStudents));
+        if (suitableClassroom) {
+            return suitableClassroom.code;
         }
     }
+    return null;
 }
 
-export function placeService(plan){ 
-    for(var service in services){
-        var placedClassroom = findClassroom(service.code);
-        days = findDay(service.serviceDay);
-        year = matchCourseSemesterYear(service.code);
-        var time1 = findTimeSlot(service.serviceTimeSlot1);
-        var time2 = findTimeSlot(service.serviceTimeSlot2);
-        var time3 = findTimeSlot(service.serviceTimeSlot3);
-        var lecture = service.code;
+export async function placeService(plan){ 
+
+    courses = (await axios.get("http://localhost:3000/course")).data; 
+    classrooms = (await axios.get("http://localhost:3000/classroom")).data;
+    services = (await axios.get("http://localhost:3000/service")).data;
+    busies = (await axios.get("http://localhost:3000/busy")).data; 
+
+    services.forEach(element => {
+        var placedClassroom = findClassroom(element.code);
+        days = findDay(element.serviceDay);
+        year = matchCourseSemesterYear(element.code);
+        var time1 = findTimeSlot(element.serviceTimeSlot1);
+        var time2 = findTimeSlot(element.serviceTimeSlot2);
+        var time3 = findTimeSlot(element.serviceTimeSlot3);
+        var lecture = element.code;
         var location1 = findLocation(year,days,time1);
         var location2 = findLocation(year,days,time2);
         var location3 = findLocation(year,days,time3);
-
+    
         plan[location1] = lecture;
         plan[location1 + 1] = placedClassroom;
         plan[location2] = lecture;
         plan[location2 + 1] = placedClassroom;
         plan[location3] = lecture;
-        plan[location3 + 1] = placedClassroom;        
-    }
-    plan[16] = "CENG 114";
-    plan[17] = "C111";
-    plan[34] = "CENG 202";
-    plan[35] = "B414";
+        plan[location3 + 1] = placedClassroom;   
+        
+    });
 }
