@@ -1,7 +1,7 @@
-html { font-family:'Times New Roman', Times, serif; font-size:11pt; height: 100vh}
-body { margin:0; background-color:linear-gradient(to bottom,rgba(48, 213, 200,0.15),rgba(48, 213, 200,0.3)) }
-div.planner{height: 90vh}
-table { border-collapse:collapse; page-break-after:always;}
+html { font-family:'Times New Roman', Times, serif; font-size:11pt;}
+body { margin:0; background-color:linear-gradient(to bottom,rgba(48, 213, 200,0.15),rgba(48, 213, 200,0.3)); height: 100%}
+div.planner{height: 100%}
+table { border-collapse:collapse; page-break-after:always; width:80%; height: 100%}
 .gridlines td, .gridlines th { border:1px solid black }
 .header { font-weight:bold; color:#333333;}
 table.sheet0 td , table.sheet0 th{ vertical-align:middle; text-align:center; border:1px solid #000000 !important; 
@@ -12,21 +12,20 @@ td.style3, th.style3 {  background-color:#FCE9D9 }
 td.style4, th.style4 {  background-color:#DBE4F1 }
 td.style5, td.style5 {  background-color:#F1DBDB }
 td.style6, td.style6 {  background-color:#F1F1F1}
-table.sheet0 col.col0 { width:67pt }
-table.sheet0 col.col1 { width:67pt }
-table.sheet0 col { width:80pt }
-table.sheet0 tr { height:13.95pt }
-table.sheet0 tr.row0 { height:16.05pt }
-table.sheet0 tr.row1 { height:16.05pt }
-table.sheet0 tr.row2 { height:16.05pt }
-table.sheet0 tr { height:13.95pt }
+table.sheet0 col.col0 { width: 10%}
+table.sheet0 col.col1 { width: 10%}
+table.sheet0 col { width: 8%}
+table.sheet0 tr { height: 2%}
+table.sheet0 tr.rowTitle1 { height: 3%}
+table.sheet0 tr.rowTitle2 { height: 3%}
+table.sheet0 tr.rowTitle3 { height: 3%}
 .result.button{
     color: #fff;
     background-color: #198754;
     border-color: #198754;
     position: fixed;
     top: 25%;
-    right: 10%;
-    width: 150px;
-    height: 100px;
+    right: 5%;
+    width: 10%;
+    height: 10%;
 }

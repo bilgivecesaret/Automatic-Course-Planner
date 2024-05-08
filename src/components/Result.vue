@@ -534,7 +534,7 @@
 </template>
 
 <script>
-import { initialPlan, placeService } from '@/my-js-codes';
+import {initialPlan, placeService} from '@/my-js-codes';
 export default {
     data() {
         return {
@@ -554,7 +554,6 @@ export default {
                 lesson8: "15:30 - 16:20",
                 lesson9: "16:30 - 17:20"
             },
-            courses:[], classrooms:[], services:[], busies:[], 
             plan:initialPlan()
         };
     },
@@ -562,12 +561,8 @@ export default {
         semerterTitle() {
             return this.semesterTitleFirstPart + " " + this.semerterTitleSecondPart;
         },
-        update(){
-            axios.get("http://localhost:3000/course").then(response => (this.courses = response.data)); 
-            axios.get("http://localhost:3000/classroom").then(response => (this.classrooms = response.data));
-            axios.get("http://localhost:3000/service").then(response => (this.services = response.data));
-            axios.get("http://localhost:3000/busy").then(response => (this.busies = response.data)); 
-            //placeService(this.plan, this.services, this.classrooms, this.courses).then(response => (this.plan = response));                
+        update(){            
+            placeService(this.plan);     
         }  
     }
 };
