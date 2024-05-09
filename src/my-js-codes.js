@@ -1,7 +1,6 @@
 import axios from "axios";
 var courses = [], classrooms = [], services = [], busies = [], plan = [];
-var day="",semester="", time="";
-var year, days, times;
+
 
 export function initialPlan(){
     for(let i=0; i<360; i++){
@@ -40,14 +39,14 @@ function findTimeSlot(time){
     else return -1;
 }
 
-function findLocation(year, days, times){
-    if(year == -1 || days == -1 || times == -1){
+function findLocation(year, day, time){
+    if(year == -1 || day == -1 || time == -1){
         return;
     }  
     var dayBlock=72;
     var timeBlock=8;
     var yearBlock=2;
-    return dayBlock*days + yearBlock*year + timeBlock*times;    
+    return dayBlock*day + yearBlock*year + timeBlock*time;    
 }
 
 function matchCourseSemesterYear(lectureCode){
@@ -98,8 +97,20 @@ function isBlockLecture(lectureCode){
 function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
- 
-function searchTimeSlot(lectureCode){
+
+function chooseRandomItem(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+}
+
+function removeItemFromArray(arr, item) {
+    const index = arr.indexOf(item);
+    if (index !== -1) {
+      arr.splice(index, 1);
+    }
+}
+
+function searchTimeSlot(lectureCode,isBlockLecture){
     
 }
 
@@ -112,8 +123,9 @@ export async function placeService(plan){
 
     services.forEach(element => {
         var placedClassroom = findClassroom(element.code);
-        days = findDay(element.serviceDay);
-        year = matchCourseSemesterYear(element.code);
+        var days = findDay(element.serviceDay);
+        var year = matchCourseSemesterYear(element.code);
+
         var time1 = findTimeSlot(element.serviceTimeSlot1);
         var time2 = findTimeSlot(element.serviceTimeSlot2);
         var time3 = findTimeSlot(element.serviceTimeSlot3);
@@ -130,27 +142,31 @@ export async function placeService(plan){
         plan[location3 + 1] = placedClassroom;   
         
     });
-/*
+
     courses.forEach(element => {
         var placedClassroom = findClassroom(element.code);
         year = matchCourseSemesterYear(element.code);
         var instructor = matchCourseInstructor(lectureCode);
         var isBlockLecture = isBlockLecture(lectureCode);
+        var time1 = findTimeSlot(element.serviceTimeSlot1);
+        var time2 = findTimeSlot(element.serviceTimeSlot2);
+        var time3 = findTimeSlot(element.serviceTimeSlot3);
+
+
+        var lectureDay = randomIntFromInterval(0, 4);
         const foundDays = busy.find(element => element.instructor === instructor);
-        var busyInstructorDay;
+        while(lectureDay == busyInstructorDay ){
+            lectureDay = randomIntFromInterval(0, 4);
+        }
+
+
+
+        
+        var busyInstructorDay = [];
         if (foundDays) {
             busyInstructorDay = findDay(foundDays.busyDay);
         }
 
-
-        var lectureDay = randomIntFromInterval(0, 4);
-        while(lectureDay == busyInstructorDay){
-            lectureDay = randomIntFromInterval(0, 4);
-        }
-        
-*/
-
-
-
+    });  
 }
 
