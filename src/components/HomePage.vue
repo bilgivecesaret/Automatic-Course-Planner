@@ -187,7 +187,7 @@ export default {
                         if (currentline[j-1] != null) {
                             value = currentline[j-1].trim().toUpperCase();
                         } else {
-                            value = "";
+                            value = null;
                         }
                         obj[head] = value;
                     }
@@ -229,7 +229,7 @@ export default {
                         if (currentline[j-1] != null) {
                             value = currentline[j-1].trim().toUpperCase();
                         } else {
-                            value = "";
+                            value = null;
                         }
                         obj[head] = value;
                     }
