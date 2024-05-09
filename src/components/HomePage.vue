@@ -114,7 +114,7 @@ export default {
                     obj["id"] = i+1;
                     for (let j = 1; j < headers.length; j++) {
                         let head = headers[j];
-                        let value = currentline[j-1];
+                        let value = currentline[j-1].trim().toUpperCase();
                         obj[head] = value;
                     }
                     course[i] = obj;
@@ -185,7 +185,7 @@ export default {
                         let head = headers[j];
                         let value;
                         if (currentline[j-1] != null) {
-                            value = currentline[j-1];
+                            value = currentline[j-1].trim().toUpperCase();
                         } else {
                             value = "";
                         }
@@ -227,7 +227,7 @@ export default {
                         let head = headers[j];
                         let value;
                         if (currentline[j-1] != null) {
-                            value = currentline[j-1];
+                            value = currentline[j-1].trim().toUpperCase();
                         } else {
                             value = "";
                         }
