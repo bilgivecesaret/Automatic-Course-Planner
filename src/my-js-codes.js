@@ -1,10 +1,9 @@
 import axios from "axios";
-var courses = [], classrooms = [], services = [], busies = [], plan = [];
-
+var courses = [], classrooms = [], services = [], busies = [], plan = [];  
 
 export function initialPlan(){
     for(let i=0; i<360; i++){
-        plan[i] = null; //i.toString();
+        plan[i] = null;//i.toString();
     } 
     return plan;
 }
@@ -41,7 +40,7 @@ function findTimeSlot(time){
 
 function findLocation(year, day, time){
     if(year == -1 || day == -1 || time == -1){
-        return;
+        return false;
     }  
     var dayBlock=72;
     var timeBlock=8;
@@ -49,10 +48,10 @@ function findLocation(year, day, time){
     return dayBlock*day + yearBlock*year + timeBlock*time;    
 }
 
-function matchCourseSemesterYear(lectureCode){
+function matchCourseSemester(lectureCode){
     const course = courses.find(element => element.code === lectureCode);
     if (course) {
-        return findYear(course.semester);
+        return course.semester;
     }
     return null;    
 }
@@ -73,31 +72,15 @@ function matchCourseInstructor(lectureCode){
     return null;
 }
 
-function matchBusyDayInstructor(instructor){
-    var busyDays = [];
-    const busy = busies.find(element => element.instructor === instructor);
-    if (busy) {
-        for(var item in busy){
-            busyDays.push(item.busyDay);
-        }        
-    }
-    return busyDays;
+function isBusyInstructor(instructor){ 
+    var isBusy = false;  
+    busies.forEach(element => {        
+        if(element.instructor === instructor){
+            isBusy = true;
+        }            
+    });
+    return isBusy;
 }
-
-function matchBusyDayTimeInstructor(instructor,days){
-    var busyDayTimes = [];    
-    for(var i=0; i<days.length; i++){
-        const busy = busies.find(element => element.instructor === instructor && element.busyDay === days[i]);
-        while (busy) {
-            for(var i=3; i<9; i++){
-                if(busy[i])
-                    busyDayTimes.push(busy[i]);
-            }        
-        }
-    } 
-    return busyDayTimes;
-}
-
 
 function findClassroom(lectureCode){
     var numStudents = matchCourseNumberOfStudents(lectureCode);
@@ -116,14 +99,13 @@ function isBlockLecture(lectureCode){
     if (course) {
         return course.preference === "3";
     }
-    return null;
 }
 
 function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function chooseRandomItem(arr) {
+function chooseRandomItemInArray(arr) {
     if(arr == null){
         return null;
     }
@@ -132,10 +114,12 @@ function chooseRandomItem(arr) {
 }
 
 function removeItemFromArray(arr, item) {
-    const index = arr.indexOf(item);
-    if (index !== -1) {
-      arr.splice(index, 1);
+    for(var i = 0; i < arr.length; i++){ 
+        if (arr[i] === item) {
+          arr.splice(i, 1); 
+        }
     }
+    return arr;
 }
 
 function findItemFromArray(arr, item) {
@@ -143,6 +127,7 @@ function findItemFromArray(arr, item) {
     if (index !== -1) {
       return true;
     }
+    return false;
 }
 
 function showAllTimeSlotsInSemester(semester){
@@ -157,8 +142,8 @@ function showAllTimeSlotsInSemester(semester){
     return timeSlotRange;
 }
 
-export async function placeService(plan){ 
-
+export async function makePlan(plan,info){ 
+    initialPlan();
     courses = (await axios.get("http://localhost:3000/course")).data; 
     classrooms = (await axios.get("http://localhost:3000/classroom")).data;
     services = (await axios.get("http://localhost:3000/service")).data;
@@ -167,7 +152,7 @@ export async function placeService(plan){
     services.forEach(element => {
         var placedClassroom = findClassroom(element.code);
         var days = findDay(element.serviceDay);
-        var year = matchCourseSemesterYear(element.code);
+        var year = findYear(matchCourseSemester(element.code));
 
         var time1 = findTimeSlot(element.serviceTimeSlot1);
         var time2 = findTimeSlot(element.serviceTimeSlot2);
@@ -176,101 +161,114 @@ export async function placeService(plan){
         var location1 = findLocation(year,days,time1);
         var location2 = findLocation(year,days,time2);
         var location3 = findLocation(year,days,time3);
+              
     
         plan[location1] = lecture;
         plan[location1 + 1] = placedClassroom;
         plan[location2] = lecture;
         plan[location2 + 1] = placedClassroom;
         plan[location3] = lecture;
-        plan[location3 + 1] = placedClassroom;   
+        plan[location3 + 1] = placedClassroom;  
+        
         
     });
 
-    
-    courses.forEach(element => {
+    var newCourseArray = [];
+    for(var i=0; i<courses.length;i++){
+        newCourseArray.push(courses[i]);
+        for(var j=0; j<services.length;j++){
+            if(courses[i].code === services[j].code){
+                newCourseArray.pop();
+            }
+        }
+    }    
+   
+    newCourseArray.forEach(element => {
         var placedClassroom = findClassroom(element.code);
-        var year = matchCourseSemesterYear(element.code);
+        var semester = matchCourseSemester(element.code);
         var instructor = matchCourseInstructor(element.code);
-        
-        var lectureDay = randomIntFromInterval(0, 4);
-
-
-        const foundBusyDays = matchBusyDayInstructor(instructor);
-        const foundBusyDaysTimeSlots = matchBusyDayTimeInstructor(instructor,foundBusyDays);   
-        var allTimeSlots = showAllTimeSlotsInSemester(year);  
-        
-        var ignoreTimeSlots = [];
-        for(var i=0; i<foundBusyDays.length; i++){
-            for(var j=0; j<foundBusyDaysTimeSlots.length;j++){
-                var location = findLocation(year,foundBusyDays[i],foundBusyDaysTimeSlots[j])
-                ignoreTimeSlots.push(location);
-            }
-        }
-        
+        var isBusy = isBusyInstructor(instructor);
+        var allTimeSlots = showAllTimeSlotsInSemester(semester);   
+          
         for(var i=0; i<plan.length; i++){
-            if(plan[i]){
-                removeItemFromArray(allTimeSlots,plan[i]);
+            if(plan[i] !== null)
+                removeItemFromArray(allTimeSlots,i);            
+        }      
+
+        var ignoreTimeSlots = []; 
+        if(isBusy){            
+            for(var i=0; i<busies.length; i++){
+                if(busies[i].instructor === element.instructor){
+                    if(busies[i].busyTimeSlots1) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots1)));
+                    if(busies[i].busyTimeSlots2) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots2)));
+                    if(busies[i].busyTimeSlots3) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots3)));
+                    if(busies[i].busyTimeSlots4) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots4)));
+                    if(busies[i].busyTimeSlots5) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots5)));
+                    if(busies[i].busyTimeSlots6) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots6)));
+                    if(busies[i].busyTimeSlots7) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots7)));
+                    if(busies[i].busyTimeSlots8) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots8)));
+                    if(busies[i].busyTimeSlots9) ignoreTimeSlots.push(findLocation(findYear(semester),findDay(busies[i].busyDay),findTimeSlot(busies[i].busyTimeSlots9)));                                        
+                }
             }
-        }
+        } 
         
         for(var i=0; i<allTimeSlots.length; i++){
             if(allTimeSlots[i]){
                 removeItemFromArray(allTimeSlots,ignoreTimeSlots[i]);
             }
         }
-        if(isBlockLecture(element)){
-            var location = chooseRandomItem(allTimeSlots);
-            var eval1 = findItemFromArray(allTimeSlots,(location+8));
-            var eval2 = findItemFromArray(allTimeSlots,(location+16));
-            var flag = true;
-            for(var item in allTimeSlots){
-                if((location) && eval1 && eval2 ){
-                    plan[location] = element.code;
-                    plan[location+1] = placedClassroom;
-                    plan[location+8] = element.code;
-                    plan[location+9] = placedClassroom;
-                    plan[location+16] = element.code;
-                    plan[location+17] = placedClassroom;
-                    flag = false;
-                    break;
-                }else{              
-                    location = chooseRandomItem(allTimeSlots);
-                }                
+
+        if(isBlockLecture(element.code)){
+            var flagBlock = true;
+            var location = chooseRandomItemInArray(allTimeSlots);
+            var eval1 = findItemFromArray(allTimeSlots,location);
+            var eval2 = findItemFromArray(allTimeSlots,(location+8));
+            var eval3 = findItemFromArray(allTimeSlots,(location+16));               
+        
+            if(eval1 && eval2 && eval3){
+                plan[location] = element.code;
+                plan[location+1] = placedClassroom;
+                plan[location+8] = element.code;
+                plan[location+9] = placedClassroom;
+                plan[location+16] = element.code;
+                plan[location+17] = placedClassroom;
+                removeItemFromArray(allTimeSlots,location);
+                removeItemFromArray(allTimeSlots,location+8);
+                removeItemFromArray(allTimeSlots,location+16);
+                flagBlock = false;                                  
             }
-            if(flag){
-                alert('Can not create a plan!\n Because {$element} can not place in plan!');
+            if(flagBlock){
+                info = 'Can not create a block lecture plan!';
                 return;
             }
         }else{
-            var location = chooseRandomItem(allTimeSlots);
-            var eval1 = findItemFromArray(allTimeSlots,(location+8));
-            var flag = true;
-            for(var item in allTimeSlots){
-                if((location) && eval1){
-                    plan[location] = element.code;
-                    plan[location+1] = placedClassroom;
-                    plan[location+8] = element.code;
-                    plan[location+9] = placedClassroom;
-                    var location2 = chooseRandomItem(allTimeSlots);
-                    if(location2 == null){
-                        alert('Can not create a plan!\n Because {$element} can not place in plan!');
-                        return;
-                    }
-                    plan[location2] = element.code;
-                    plan[location2 +1] = placedClassroom;
-                    flag = false;
-                    break;
-                }else{              
-                    location = chooseRandomItem(allTimeSlots);
-                }                
+            var flagApart = true;
+            var location = chooseRandomItemInArray(allTimeSlots);               
+            var eval1 = findItemFromArray(allTimeSlots,location);
+            var eval2 = findItemFromArray(allTimeSlots,(location+8));
+            
+            if(eval1 && eval2){
+                plan[location] = element.code;
+                plan[location+1] = placedClassroom;
+                plan[location+8] = element.code;
+                plan[location+9] = placedClassroom;  
+                removeItemFromArray(allTimeSlots,location);
+                removeItemFromArray(allTimeSlots,location+8); 
+                flagApart = false;            
+            }            
+            location = chooseRandomItemInArray(allTimeSlots);
+            var eval3 = findItemFromArray(allTimeSlots,location);
+            if(eval3){
+                plan[location] = element.code;
+                plan[location +1] = placedClassroom;
+                removeItemFromArray(allTimeSlots,location);
+                flagApart = false; 
             }
-            if(flag){
-                alert('Can not create a plan!\n Because {$element} can not place in plan!');
+            if(flagApart){
+                info = 'Can not create a 2+1 lecture plan!';
                 return;
-            }
-        }
-        
+            }        
+        }              
     }); 
-    
+   
 }
-

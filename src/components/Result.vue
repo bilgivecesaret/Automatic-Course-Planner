@@ -531,10 +531,13 @@
 <div>
     <button type="button" class="result button" v-on:click="update">Make Plan</button>
 </div>
+<div class="info">
+    <h1> {{ info }} </h1>
+</div>
 </template>
 
 <script>
-import {initialPlan, placeService} from '@/my-js-codes';
+import {initialPlan, makePlan} from '@/my-js-codes';
 export default {
     data() {
         return {
@@ -554,7 +557,8 @@ export default {
                 lesson8: "15:30 - 16:20",
                 lesson9: "16:30 - 17:20"
             },
-            plan:initialPlan()
+            plan:initialPlan(),
+            info:null
         };
     },
     methods: {
@@ -562,7 +566,7 @@ export default {
             return this.semesterTitleFirstPart + " " + this.semerterTitleSecondPart;
         },
         update(){            
-            placeService(this.plan);     
+            makePlan(this.plan,this.info);     
         }  
     }
 };

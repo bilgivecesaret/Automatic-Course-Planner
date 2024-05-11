@@ -29,3 +29,13 @@ table.sheet0 tr.rowTitle3 { height: 3%}
     width: 10%;
     height: 10%;
 }
+.info{
+    color: magenta;
+    background-color: midnightblue;
+    border-color: #198754;
+    position: fixed;
+    top: 50%;
+    right: 5%;
+    width: 10%;
+    height: 10%;
+}
