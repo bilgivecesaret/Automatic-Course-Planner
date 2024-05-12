@@ -95,12 +95,10 @@ export default {
                 this.showAdd = false;
                 this.showUpdate = true;
                 this.showCancel = false;
-                const url = "http://localhost:3000/classroom/?id=" + this.idItem;
+                const url = "http://localhost:3000/classroom/" + (this.idItem);
                 await axios.put(url, {
-                    data:{
-                        code: this.classroom.code,
-                        capacity: this.classroom.capacity
-                    }                  
+                    code: this.classroom.code,
+                    capacity: this.classroom.capacity                  
                 });  
             }else {
                 this.showCancel = false;

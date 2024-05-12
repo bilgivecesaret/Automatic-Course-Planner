@@ -145,7 +145,7 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(";");
-                    for (let j = 0; j < headers.length+1; j++) {
+                    for (let j = 0; j < headers.length; j++) {
                         let head = headers[j];
                         let value = currentline[j];
                         obj[head] = value;
