@@ -30,9 +30,7 @@ table.sheet0 tr.rowTitle3 { height: 3%}
     height: 10%;
 }
 .info{
-    color: magenta;
-    background-color: midnightblue;
-    border-color: #198754;
+    color: midnightblue;
     position: fixed;
     top: 50%;
     right: 5%;

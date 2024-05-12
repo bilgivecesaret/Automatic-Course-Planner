@@ -103,7 +103,7 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["id","code", "name", "semester", "credit", "CorE", "DorS", "numStudents", "instructor", "preference"];
+                headers = ["code", "name", "semester", "credit", "CorE", "DorS", "numStudents", "instructor", "preference"];
 
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue                    
@@ -111,10 +111,9 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
-                    obj["id"] = i+1;
-                    for (let j = 1; j < headers.length; j++) {
+                    for (let j = 0; j < headers.length; j++) {
                         let head = headers[j];
-                        let value = currentline[j-1].trim().toUpperCase();
+                        let value = currentline[j].trim().toUpperCase();
                         obj[head] = value;
                     }
                     course[i] = obj;
@@ -138,7 +137,7 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["id","code", "capacity"];
+                headers = ["code", "capacity"];
 
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue                    
@@ -146,10 +145,9 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(";");
-                    obj["id"] = i+1;
-                    for (let j = 1; j < headers.length+1; j++) {
+                    for (let j = 0; j < headers.length+1; j++) {
                         let head = headers[j];
-                        let value = currentline[j-1];
+                        let value = currentline[j];
                         obj[head] = value;
                     }
                     classroom[i] = obj;
@@ -173,19 +171,18 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["id","code", "serviceDay", "serviceTimeSlot1", "serviceTimeSlot2", "serviceTimeSlot3"];
+                headers = ["code", "serviceDay", "serviceTimeSlot1", "serviceTimeSlot2", "serviceTimeSlot3"];
                 for (let i = 0; i < lines.length; i++) {
                     if (!lines[i]) continue
                     currentline = lines[i];
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
-                    obj["id"] = i+1;
-                    for (let j = 1; j < headers.length; j++) {
+                    for (let j = 0; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
-                        if (currentline[j-1] != null) {
-                            value = currentline[j-1].trim().toUpperCase();
+                        if (currentline[j] !== null) {
+                            value = currentline[j].trim().toUpperCase();
                         } else {
                             value = null;
                         }
@@ -212,7 +209,7 @@ export default {
             reader.onload = event => {
                 csv = reader.result;
                 lines = csv.split("\r\n");
-                headers = ["id","instructor", "busyDay", "busyTimeSlots1", "busyTimeSlots2", "busyTimeSlots3",
+                headers = ["instructor", "busyDay", "busyTimeSlots1", "busyTimeSlots2", "busyTimeSlots3",
                     "busyTimeSlots4", "busyTimeSlots5", "busyTimeSlots6,",
                     "busyTimeSlots7", "busyTimeSlots8", "busyTimeSlots9"
                 ];
@@ -222,12 +219,11 @@ export default {
                     var re = /"/g;
                     currentline = re[Symbol.replace](currentline, '');
                     currentline = currentline.split(",");
-                    obj["id"] = i+1;
-                    for (let j = 1; j < headers.length; j++) {
+                    for (let j = 0; j < headers.length; j++) {
                         let head = headers[j];
                         let value;
-                        if (currentline[j-1] != null) {
-                            value = currentline[j-1].trim().toUpperCase();
+                        if (currentline[j] != null) {
+                            value = currentline[j].trim().toUpperCase();
                         } else {
                             value = null;
                         }
@@ -245,13 +241,13 @@ async function Plan1(course) {
     await axios.post("http://localhost:3000/course", course);
 };
 async function Plan2(classroom) {
-    await axios.post("http://localhost:3000/classroom/", classroom);
+    await axios.post("http://localhost:3000/classroom", classroom);
 };
 async function Plan3(service) {
-    await axios.post("http://localhost:3000/service/", service);
+    await axios.post("http://localhost:3000/service", service);
 };
 async function Plan4(busy) {
-    await axios.post("http://localhost:3000/busy/", busy);
+    await axios.post("http://localhost:3000/busy", busy);
 };
 
 </script>
