@@ -101,6 +101,8 @@ export default {
                     capacity: this.classroom.capacity                  
                 });  
             }else {
+                this.showAdd = true;
+                this.showUpdate = false;
                 this.showCancel = false;
             }         
             await axios.get("http://localhost:3000/classroom").then(response => (this.classrooms = response.data));

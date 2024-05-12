@@ -21,6 +21,7 @@ We recommend using VS Code to install and run the application. This application 
 
 ### 3. Start the app
 
+Run `npm install` into terminal to start the app.
 Run `npm dev run` into terminal to start the app.
 Type 'cd public' into terminal to access the json datas.
 Run `npx json-server db.json` into terminal to start the database db.json

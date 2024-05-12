@@ -182,6 +182,8 @@ export default {
                     busyTimeSlots9: this.busy.busyTimeSlots9
                 });
             }else {
+                this.showAdd = true;
+                this.showUpdate = false;
                 this.showCancel = false;
             }
             await axios.get("http://localhost:3000/busy").then(response => (this.busies = response.data));

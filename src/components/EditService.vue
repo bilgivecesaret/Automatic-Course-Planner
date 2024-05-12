@@ -128,7 +128,9 @@ export default {
                     serviceTimeSlot3: this.service.serviceTimeSlot3
                 });
             }else{
-              this.showCancel = false;
+                this.showAdd = true;
+                this.showUpdate = false;
+                this.showCancel = false;
             }
             await axios.get("http://localhost:3000/service").then(response => (this.services = response.data));
             this.service.code = null;

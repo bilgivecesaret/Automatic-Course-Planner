@@ -165,6 +165,8 @@ export default {
                     preference: this.course.preference
                 });
             }else {
+                this.showAdd = true;
+                this.showUpdate = false;
                 this.showCancel = false;
             }
             await axios.get("http://localhost:3000/course").then(response => (this.courses = response.data));
