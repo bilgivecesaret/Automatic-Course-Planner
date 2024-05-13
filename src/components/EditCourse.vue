@@ -148,8 +148,8 @@ export default {
         async updateCourse() {
             let answer = confirm("Update data?");
             if (answer === true) {
-                this.showAdd = false;
-                this.showUpdate = true;
+                this.showAdd = true;
+                this.showUpdate = false;
                 this.showCancel = false;
                 const url = "http://localhost:3000/course/" + (this.idItem);
                 await axios.put(url, {

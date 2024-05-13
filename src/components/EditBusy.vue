@@ -164,8 +164,8 @@ export default {
         async updateBusy() {
             let answer = confirm("Update data?");
             if (answer === true) {
-                this.showAdd = false;
-                this.showUpdate = true;
+                this.showAdd = true;
+                this.showUpdate = false;
                 this.showCancel = false;
                 const url = "http://localhost:3000/busy/" + (this.idItem);
                 await axios.put(url, {
